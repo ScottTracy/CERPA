@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.ComponentModel.DataAnnotations;
 
-namespace CERPA.Models.PartProfiles
+namespace CERPA.Models
 {
     public class PartProperty
     {
+        [Key]
         public string PartID { get; set; }
         public string PropertyName { get; set; }
         public bool IsPropertyConfigurable { get; set; }

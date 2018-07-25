@@ -70,12 +70,20 @@ namespace CERPA.Models
         {
             Database.SetInitializer<ApplicationDbContext>(new ApplicationDbInitializer());
         }
-
+        
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
         }
         public virtual IDbSet<ApplicationGroup> ApplicationGroups { get; set; }
+        public virtual DbSet<InventoryItem> Inventory { get; set; }
+        public virtual DbSet<Job> Jobs { get; set; }
+        public virtual DbSet<Order> Orders { get; set; }
+        public virtual DbSet<PartProcess> PartProcesses { get; set; }
+        public virtual DbSet<PartProperty> PartProperties { get; set; }
+        public virtual DbSet<PartStructure> PartStructures { get; set; }
+        
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             // Make sure to call the base method first:

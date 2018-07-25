@@ -50,11 +50,10 @@ D:\projects\CERPA\CERPA\bin\System.Web.Razor.xml
 D:\projects\CERPA\CERPA\bin\System.Web.WebPages.xml
 D:\projects\CERPA\CERPA\bin\System.Web.WebPages.Deployment.xml
 D:\projects\CERPA\CERPA\bin\System.Web.WebPages.Razor.xml
-D:\projects\CERPA\CERPA\obj\Debug\CERPA.Migrations.initial.resources
-D:\projects\CERPA\CERPA\obj\Debug\CERPA.Migrations.addedapplicationgroup.resources
-D:\projects\CERPA\CERPA\obj\Debug\CERPA.csproj.GenerateResource.cache
 D:\projects\CERPA\CERPA\obj\Debug\CERPA.csproj.CoreCompileInputs.cache
 D:\projects\CERPA\CERPA\obj\Debug\CERPA.csproj.CopyComplete
 D:\projects\CERPA\CERPA\obj\Debug\CERPA.dll
 D:\projects\CERPA\CERPA\obj\Debug\CERPA.pdb
 D:\projects\CERPA\CERPA\obj\Debug\CERPA.csprojAssemblyReference.cache
+D:\projects\CERPA\CERPA\obj\Debug\CERPA.Migrations.initial.resources
+D:\projects\CERPA\CERPA\obj\Debug\CERPA.csproj.GenerateResource.cache

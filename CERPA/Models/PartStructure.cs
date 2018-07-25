@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace CERPA.Models.PartProfiles
-{
+namespace CERPA.Models
+{ 
     public class PartStructure
     {
+        [Key]
         public string PartID { get; set; }
         public string ChildID { get; set; }
         public bool ISChildQuantityConfigurable { get; set; }

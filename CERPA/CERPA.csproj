@@ -250,13 +250,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201807241408589_initial.cs" />
-    <Compile Include="Migrations\201807241408589_initial.Designer.cs">
-      <DependentUpon>201807241408589_initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807241506502_added application group.cs" />
-    <Compile Include="Migrations\201807241506502_added application group.Designer.cs">
-      <DependentUpon>201807241506502_added application group.cs</DependentUpon>
+    <Compile Include="Migrations\201807251847091_initial.cs" />
+    <Compile Include="Migrations\201807251847091_initial.Designer.cs">
+      <DependentUpon>201807251847091_initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -271,7 +267,6 @@
     <Compile Include="Models\Job.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Order.cs" />
-    <Compile Include="Models\PartProfile.cs" />
     <Compile Include="Models\ConfigurableAssemblyVariable.cs" />
     <Compile Include="Models\PartProcess.cs" />
     <Compile Include="Models\PartProperty.cs" />
@@ -280,14 +275,10 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201807241408589_initial.resx">
-      <DependentUpon>201807241408589_initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807241506502_added application group.resx">
-      <DependentUpon>201807241506502_added application group.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201807251847091_initial.resx">
+      <DependentUpon>201807251847091_initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
