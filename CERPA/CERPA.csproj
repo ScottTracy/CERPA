@@ -267,10 +267,15 @@
     <Compile Include="Models\GroupStoreBase.cs" />
     <Compile Include="Models\GroupViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\InventoryItem.cs" />
+    <Compile Include="Models\Job.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Order.cs" />
     <Compile Include="Models\PartProfile.cs" />
-    <Compile Include="Models\PartProfiles\PartProcess.cs" />
-    <Compile Include="Models\PartProfiles\PartStructure.cs" />
+    <Compile Include="Models\ConfigurableAssemblyVariable.cs" />
+    <Compile Include="Models\PartProcess.cs" />
+    <Compile Include="Models\PartProperty.cs" />
+    <Compile Include="Models\PartStructure.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
