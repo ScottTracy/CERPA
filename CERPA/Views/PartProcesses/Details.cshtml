@@ -1,0 +1,42 @@
+﻿@model CERPA.Models.PartProcess
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PartProcess</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.WorkstationID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WorkstationID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProcessTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProcessTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserID)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PartID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

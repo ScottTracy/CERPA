@@ -41,8 +41,7 @@ namespace CERPA.Controllers
             }
         }
 
-        // Add the Group Manager (NOTE: only access through the public
-        // Property, not by the instance variable!)
+        
         private ApplicationGroupManager _groupManager;
         public ApplicationGroupManager GroupManager
         {
@@ -85,7 +84,7 @@ namespace CERPA.Controllers
             }
             var user = await UserManager.FindByIdAsync(id);
 
-            // Show the groups the user belongs to:
+            
             var userGroups = await this.GroupManager.GetUserGroupsAsync(id);
             ViewBag.GroupNames = userGroups.Select(u => u.Name).ToList();
             return View(user);
@@ -94,7 +93,7 @@ namespace CERPA.Controllers
 
         public ActionResult Create()
         {
-            // Show a list of available groups:
+            
             ViewBag.GroupsList =
                 new SelectList(this.GroupManager.Groups, "Id", "Name");
             return View();
@@ -115,7 +114,7 @@ namespace CERPA.Controllers
                 var adminresult = await UserManager
                     .CreateAsync(user, userViewModel.Password);
 
-                //Add User to the selected Groups 
+                
                 if (adminresult.Succeeded)
                 {
                     if (selectedGroups != null)
@@ -145,7 +144,7 @@ namespace CERPA.Controllers
                 return HttpNotFound();
             }
 
-            // Display a list of available Groups:
+            
             var allGroups = this.GroupManager.Groups;
             var userGroups = await this.GroupManager.GetUserGroupsAsync(id);
 
@@ -183,12 +182,12 @@ namespace CERPA.Controllers
                     return HttpNotFound();
                 }
 
-                // Update the User:
+                
                 user.UserName = editUser.Email;
                 user.Email = editUser.Email;
                 await this.UserManager.UpdateAsync(user);
 
-                // Update the Groups:
+                
                 selectedGroups = selectedGroups ?? new string[] { };
                 await this.GroupManager.SetUserGroupsAsync(user.Id, selectedGroups);
                 return RedirectToAction("Index");

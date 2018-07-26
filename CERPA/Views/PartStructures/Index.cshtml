@@ -1,0 +1,45 @@
+﻿@model IEnumerable<CERPA.Models.PartStructure>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ChildID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ISChildQuantityConfigurable)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ChildQuantity)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ChildID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ISChildQuantityConfigurable)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ChildQuantity)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.PartID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.PartID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.PartID })
+        </td>
+    </tr>
+}
+
+</table>

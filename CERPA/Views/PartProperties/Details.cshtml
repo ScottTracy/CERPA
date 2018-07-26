@@ -1,0 +1,42 @@
+﻿@model CERPA.Models.PartProperty
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PartProperty</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PropertyName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PropertyName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsPropertyConfigurable)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsPropertyConfigurable)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PropertyValue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PropertyValue)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PartID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

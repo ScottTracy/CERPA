@@ -1,0 +1,128 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Net;
+using System.Web;
+using System.Web.Mvc;
+using CERPA.Models;
+
+namespace CERPA.Controllers
+{
+    public class PartStructuresController : Controller
+    {
+        private ApplicationDbContext db = new ApplicationDbContext();
+
+        // GET: PartStructures
+        public async Task<ActionResult> Index()
+        {
+            return View(await db.PartStructures.ToListAsync());
+        }
+
+        // GET: PartStructures/Details/5
+        public async Task<ActionResult> Details(string id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            PartStructure partStructure = await db.PartStructures.FindAsync(id);
+            if (partStructure == null)
+            {
+                return HttpNotFound();
+            }
+            return View(partStructure);
+        }
+
+        // GET: PartStructures/Create
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        // POST: PartStructures/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Create([Bind(Include = "PartID,ChildID,ISChildQuantityConfigurable,ChildQuantity")] PartStructure partStructure)
+        {
+            if (ModelState.IsValid)
+            {
+                db.PartStructures.Add(partStructure);
+                await db.SaveChangesAsync();
+                return RedirectToAction("Index");
+            }
+
+            return View(partStructure);
+        }
+
+        // GET: PartStructures/Edit/5
+        public async Task<ActionResult> Edit(string id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            PartStructure partStructure = await db.PartStructures.FindAsync(id);
+            if (partStructure == null)
+            {
+                return HttpNotFound();
+            }
+            return View(partStructure);
+        }
+
+        // POST: PartStructures/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Edit([Bind(Include = "PartID,ChildID,ISChildQuantityConfigurable,ChildQuantity")] PartStructure partStructure)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(partStructure).State = EntityState.Modified;
+                await db.SaveChangesAsync();
+                return RedirectToAction("Index");
+            }
+            return View(partStructure);
+        }
+
+        // GET: PartStructures/Delete/5
+        public async Task<ActionResult> Delete(string id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            PartStructure partStructure = await db.PartStructures.FindAsync(id);
+            if (partStructure == null)
+            {
+                return HttpNotFound();
+            }
+            return View(partStructure);
+        }
+
+        // POST: PartStructures/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> DeleteConfirmed(string id)
+        {
+            PartStructure partStructure = await db.PartStructures.FindAsync(id);
+            db.PartStructures.Remove(partStructure);
+            await db.SaveChangesAsync();
+            return RedirectToAction("Index");
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                db.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+    }
+}

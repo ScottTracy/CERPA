@@ -70,7 +70,7 @@ namespace CERPA.Models
         {
             Database.SetInitializer<ApplicationDbContext>(new ApplicationDbInitializer());
         }
-        
+
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
@@ -82,7 +82,7 @@ namespace CERPA.Models
         public virtual DbSet<PartProcess> PartProcesses { get; set; }
         public virtual DbSet<PartProperty> PartProperties { get; set; }
         public virtual DbSet<PartStructure> PartStructures { get; set; }
-        
+        public virtual DbSet<ConfigurableAssemblyVariable> ConfigurableAssemblyVariables {get;set;}
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -114,6 +114,7 @@ namespace CERPA.Models
                     ApplicationGroupId = gr.ApplicationGroupId
                 }).ToTable("ApplicationGroupRoles");
         }
+
         
     }
 

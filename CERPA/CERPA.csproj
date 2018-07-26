@@ -44,11 +44,11 @@
     <Reference Include="Antlr3.Runtime">
       <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
-    <Reference Include="EntityFramework.SqlServer">
-      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.1.0-alpha1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
@@ -165,6 +165,36 @@
     <Content Include="Views\UsersAdmin\Index.cshtml" />
     <Content Include="ClassDiagram1.cd" />
     <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\PartStructures\Create.cshtml" />
+    <Content Include="Views\PartStructures\Delete.cshtml" />
+    <Content Include="Views\PartStructures\Details.cshtml" />
+    <Content Include="Views\PartStructures\Edit.cshtml" />
+    <Content Include="Views\PartStructures\Index.cshtml" />
+    <Content Include="Views\PartProperties\Create.cshtml" />
+    <Content Include="Views\PartProperties\Delete.cshtml" />
+    <Content Include="Views\PartProperties\Details.cshtml" />
+    <Content Include="Views\PartProperties\Edit.cshtml" />
+    <Content Include="Views\PartProperties\Index.cshtml" />
+    <Content Include="Views\PartProcesses\Create.cshtml" />
+    <Content Include="Views\PartProcesses\Delete.cshtml" />
+    <Content Include="Views\PartProcesses\Details.cshtml" />
+    <Content Include="Views\PartProcesses\Edit.cshtml" />
+    <Content Include="Views\PartProcesses\Index.cshtml" />
+    <Content Include="Views\Orders\Create.cshtml" />
+    <Content Include="Views\Orders\Delete.cshtml" />
+    <Content Include="Views\Orders\Details.cshtml" />
+    <Content Include="Views\Orders\Edit.cshtml" />
+    <Content Include="Views\Orders\Index.cshtml" />
+    <Content Include="Views\Jobs\Create.cshtml" />
+    <Content Include="Views\Jobs\Delete.cshtml" />
+    <Content Include="Views\Jobs\Details.cshtml" />
+    <Content Include="Views\Jobs\Edit.cshtml" />
+    <Content Include="Views\Jobs\Index.cshtml" />
+    <Content Include="Views\ConfigurableAssemblyVariables\Create.cshtml" />
+    <Content Include="Views\ConfigurableAssemblyVariables\Delete.cshtml" />
+    <Content Include="Views\ConfigurableAssemblyVariables\Details.cshtml" />
+    <Content Include="Views\ConfigurableAssemblyVariables\Edit.cshtml" />
+    <Content Include="Views\ConfigurableAssemblyVariables\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
       <SubType>Designer</SubType>
@@ -242,9 +272,15 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ConfigurableAssemblyVariablesController.cs" />
     <Compile Include="Controllers\GroupsAdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\JobsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\OrdersController.cs" />
+    <Compile Include="Controllers\PartProcessesController.cs" />
+    <Compile Include="Controllers\PartPropertiesController.cs" />
+    <Compile Include="Controllers\PartStructuresController.cs" />
     <Compile Include="Controllers\RolesAdminController.cs" />
     <Compile Include="Controllers\UserAdminController.cs" />
     <Compile Include="Global.asax.cs">
@@ -253,6 +289,14 @@
     <Compile Include="Migrations\201807251847091_initial.cs" />
     <Compile Include="Migrations\201807251847091_initial.Designer.cs">
       <DependentUpon>201807251847091_initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807261626322_added assebly model.cs" />
+    <Compile Include="Migrations\201807261626322_added assebly model.Designer.cs">
+      <DependentUpon>201807261626322_added assebly model.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807261701366_added reference to ConfigurableAssembly Variable in Identity model.cs" />
+    <Compile Include="Migrations\201807261701366_added reference to ConfigurableAssembly Variable in Identity model.Designer.cs">
+      <DependentUpon>201807261701366_added reference to ConfigurableAssembly Variable in Identity model.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -271,12 +315,19 @@
     <Compile Include="Models\PartProcess.cs" />
     <Compile Include="Models\PartProperty.cs" />
     <Compile Include="Models\PartStructure.cs" />
+    <Compile Include="PartProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201807251847091_initial.resx">
       <DependentUpon>201807251847091_initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807261626322_added assebly model.resx">
+      <DependentUpon>201807261626322_added assebly model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807261701366_added reference to ConfigurableAssembly Variable in Identity model.resx">
+      <DependentUpon>201807261701366_added reference to ConfigurableAssembly Variable in Identity model.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -1,4 +1,4 @@
-﻿using CERPA.Models.PartProfiles;
+﻿using CERPA.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
