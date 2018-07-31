@@ -9,6 +9,7 @@ namespace CERPA.Models
     public class PartProperty
     {
         [Key]
+        public int ID { get; set; }
         public string PartID { get; set; }
         public string PropertyName { get; set; }
         public bool IsPropertyConfigurable { get; set; }

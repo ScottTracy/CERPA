@@ -9,6 +9,7 @@ namespace CERPA.Models
     public class Job
     {
         [Key]
+        public int ID { get; set; }
         public string OrderID { get; set; }
         public string Workstation { get; set; }
 

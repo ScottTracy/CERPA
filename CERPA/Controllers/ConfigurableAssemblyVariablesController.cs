@@ -11,8 +11,10 @@ using CERPA.Models;
 
 namespace CERPA.Controllers
 {
+
     public class ConfigurableAssemblyVariablesController : Controller
     {
+        
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: ConfigurableAssemblyVariables
@@ -51,9 +53,31 @@ namespace CERPA.Controllers
         {
             if (ModelState.IsValid)
             {
+                Session["PartID"]= configurableAssemblyVariable.PartID;
                 db.ConfigurableAssemblyVariables.Add(configurableAssemblyVariable);
                 await db.SaveChangesAsync();
-                return RedirectToAction("Index");
+                return RedirectToAction("AddAnother");
+            }
+
+            return View(configurableAssemblyVariable);
+        }
+        // GET: ConfigurableAssemblyVariables/Create
+        public ActionResult CreateAnother()
+        {
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> CreateAnother([Bind(Include = "PartID,VariableName,ISRequired")] ConfigurableAssemblyVariable configurableAssemblyVariable)
+        {
+            var partIDTransfer =
+            configurableAssemblyVariable.PartID = Session["PartID"].ToString();
+            if (ModelState.IsValid)
+            {
+                
+                db.ConfigurableAssemblyVariables.Add(configurableAssemblyVariable);
+                await db.SaveChangesAsync();
+                return RedirectToAction("AddAnother");
             }
 
             return View(configurableAssemblyVariable);
@@ -91,7 +115,7 @@ namespace CERPA.Controllers
         }
 
         // GET: ConfigurableAssemblyVariables/Delete/5
-        public async Task<ActionResult> Delete(string id)
+        public async Task<ActionResult> Delete(int id)
         {
             if (id == null)
             {
@@ -108,7 +132,7 @@ namespace CERPA.Controllers
         // POST: ConfigurableAssemblyVariables/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> DeleteConfirmed(string id)
+        public async Task<ActionResult> DeleteConfirmed(int id)
         {
             ConfigurableAssemblyVariable configurableAssemblyVariable = await db.ConfigurableAssemblyVariables.FindAsync(id);
             db.ConfigurableAssemblyVariables.Remove(configurableAssemblyVariable);
@@ -124,5 +148,12 @@ namespace CERPA.Controllers
             }
             base.Dispose(disposing);
         }
+        public async Task<ActionResult> AddAnother()
+        {
+       
+            return View(await db.ConfigurableAssemblyVariables.ToListAsync());
+        }
+
+
     }
 }

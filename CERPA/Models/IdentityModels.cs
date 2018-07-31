@@ -86,7 +86,7 @@ namespace CERPA.Models
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            // Make sure to call the base method first:
+            
             base.OnModelCreating(modelBuilder);
 
             // Map Users to Groups:
@@ -115,11 +115,10 @@ namespace CERPA.Models
                 }).ToTable("ApplicationGroupRoles");
         }
 
-        
+        public System.Data.Entity.DbSet<CERPA.Models.AssemblyProfile> AssemblyProfiles { get; set; }
     }
 
-    // Most likely won't need to customize these either, but they were needed because we implemented
-    // custom versions of all the other types:
+    
     public class ApplicationUserStore
         : UserStore<ApplicationUser, ApplicationRole, string,
             ApplicationUserLogin, ApplicationUserRole,

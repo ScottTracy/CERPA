@@ -9,6 +9,7 @@ namespace CERPA.Models
     public class ConfigurableAssemblyVariable
     {
         [Key]
+        public int ID { get; set; }
         public string PartID { get; set; }
         public string VariableName { get; set; }
         public bool ISRequired { get; set; }

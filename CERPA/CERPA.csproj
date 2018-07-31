@@ -195,6 +195,18 @@
     <Content Include="Views\ConfigurableAssemblyVariables\Details.cshtml" />
     <Content Include="Views\ConfigurableAssemblyVariables\Edit.cshtml" />
     <Content Include="Views\ConfigurableAssemblyVariables\Index.cshtml" />
+    <Content Include="Views\InventoryItems\Create.cshtml" />
+    <Content Include="Views\InventoryItems\Delete.cshtml" />
+    <Content Include="Views\InventoryItems\Details.cshtml" />
+    <Content Include="Views\InventoryItems\Edit.cshtml" />
+    <Content Include="Views\InventoryItems\Index.cshtml" />
+    <Content Include="Views\AssemblyProfiles\Create.cshtml" />
+    <Content Include="Views\AssemblyProfiles\Delete.cshtml" />
+    <Content Include="Views\AssemblyProfiles\Details.cshtml" />
+    <Content Include="Views\AssemblyProfiles\Edit.cshtml" />
+    <Content Include="Views\AssemblyProfiles\Index.cshtml" />
+    <Content Include="Views\ConfigurableAssemblyVariables\AddAnother.cshtml" />
+    <Content Include="Views\ConfigurableAssemblyVariables\CreateAnother.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
       <SubType>Designer</SubType>
@@ -272,9 +284,11 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AssemblyProfilesController.cs" />
     <Compile Include="Controllers\ConfigurableAssemblyVariablesController.cs" />
     <Compile Include="Controllers\GroupsAdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InventoryItemsController.cs" />
     <Compile Include="Controllers\JobsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\OrdersController.cs" />
@@ -286,17 +300,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201807251847091_initial.cs" />
-    <Compile Include="Migrations\201807251847091_initial.Designer.cs">
-      <DependentUpon>201807251847091_initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807261626322_added assebly model.cs" />
-    <Compile Include="Migrations\201807261626322_added assebly model.Designer.cs">
-      <DependentUpon>201807261626322_added assebly model.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807261701366_added reference to ConfigurableAssembly Variable in Identity model.cs" />
-    <Compile Include="Migrations\201807261701366_added reference to ConfigurableAssembly Variable in Identity model.Designer.cs">
-      <DependentUpon>201807261701366_added reference to ConfigurableAssembly Variable in Identity model.cs</DependentUpon>
+    <Compile Include="Migrations\201807302055125_initial.cs" />
+    <Compile Include="Migrations\201807302055125_initial.Designer.cs">
+      <DependentUpon>201807302055125_initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -304,6 +310,7 @@
     <Compile Include="Models\ApplicationGroup.cs" />
     <Compile Include="Models\ApplicationGroupManager.cs" />
     <Compile Include="Models\ApplicationGroupStore.cs" />
+    <Compile Include="Models\AssemblyProfile.cs" />
     <Compile Include="Models\GroupStoreBase.cs" />
     <Compile Include="Models\GroupViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -320,14 +327,8 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201807251847091_initial.resx">
-      <DependentUpon>201807251847091_initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807261626322_added assebly model.resx">
-      <DependentUpon>201807261626322_added assebly model.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807261701366_added reference to ConfigurableAssembly Variable in Identity model.resx">
-      <DependentUpon>201807261701366_added reference to ConfigurableAssembly Variable in Identity model.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201807302055125_initial.resx">
+      <DependentUpon>201807302055125_initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

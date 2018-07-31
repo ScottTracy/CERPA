@@ -9,6 +9,7 @@ namespace CERPA.Models
     public class PartProcess
     {
         [Key]
+        public int ID { get; set; }
         public string PartID { get; set; }
         public string WorkstationID { get; set; }
         public TimeSpan ProcessTime { get; set; }

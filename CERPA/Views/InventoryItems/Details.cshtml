@@ -1,0 +1,58 @@
+﻿@model CERPA.Models.InventoryItem
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>InventoryItem</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Location)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Location)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastConfirmed)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastConfirmed)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Quantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Quantity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReorderPoint)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReorderPoint)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReorderQuantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReorderQuantity)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PartID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

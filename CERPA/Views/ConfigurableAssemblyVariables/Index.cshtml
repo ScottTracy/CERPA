@@ -14,9 +14,7 @@
         <th>
             @Html.DisplayNameFor(model => model.VariableName)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ISRequired)
-        </th>
+        
         <th></th>
     </tr>
 
@@ -25,9 +23,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.VariableName)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ISRequired)
-        </td>
+        
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.PartID }) |
             @Html.ActionLink("Details", "Details", new { id=item.PartID }) |

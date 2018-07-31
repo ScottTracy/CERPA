@@ -9,6 +9,7 @@ namespace CERPA.Models
     public class InventoryItem
     {
         [Key]
+        public int ID { get; set; }
         public string PartID { get; set; }
         public string Location { get; set; }
         public DateTime LastConfirmed { get; set; }
