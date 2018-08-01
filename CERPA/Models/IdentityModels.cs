@@ -116,9 +116,11 @@ namespace CERPA.Models
         }
 
         public System.Data.Entity.DbSet<CERPA.Models.AssemblyProfile> AssemblyProfiles { get; set; }
+
+        public System.Data.Entity.DbSet<CERPA.Models.ChildQuantityExpression> ChildQuantityExpressions { get; set; }
     }
 
-    
+
     public class ApplicationUserStore
         : UserStore<ApplicationUser, ApplicationRole, string,
             ApplicationUserLogin, ApplicationUserRole,

@@ -207,6 +207,11 @@
     <Content Include="Views\PartStructures\Details.cshtml" />
     <Content Include="Views\PartStructures\Edit.cshtml" />
     <Content Include="Views\PartStructures\Index.cshtml" />
+    <Content Include="Views\ChildQuantityExpressions\Create.cshtml" />
+    <Content Include="Views\ChildQuantityExpressions\Delete.cshtml" />
+    <Content Include="Views\ChildQuantityExpressions\Details.cshtml" />
+    <Content Include="Views\ChildQuantityExpressions\Edit.cshtml" />
+    <Content Include="Views\ChildQuantityExpressions\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
       <SubType>Designer</SubType>
@@ -285,6 +290,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AssemblyProfilesController.cs" />
+    <Compile Include="Controllers\ChildQuantityExpressionsController.cs" />
     <Compile Include="Controllers\ConfigurableAssemblyVariablesController.cs" />
     <Compile Include="Controllers\GroupsAdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />

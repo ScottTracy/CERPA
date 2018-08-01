@@ -49,6 +49,14 @@ namespace CERPA.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create([Bind(Include = "ID,PartID,ChildID,ISChildQuantityConfigurable,ChildQuantity")] PartStructure partStructure)
         {
+            partStructure.PartID = Session["PartId"].ToString();
+            Session["Partstructure"] = partStructure;
+            if(partStructure.ISChildQuantityConfigurable == true && partStructure.ChildQuantityExpression== null)
+            {
+                db.PartStructures.Add(partStructure);
+                await db.SaveChangesAsync();
+                return RedirectToAction("Create", "ChildQuantityExpressions");
+            }
             if (ModelState.IsValid)
             {
                 db.PartStructures.Add(partStructure);

@@ -1,0 +1,51 @@
+﻿@model IEnumerable<CERPA.Models.ChildQuantityExpression>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ChildID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Variable)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Devisor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Constant)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ChildID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Variable)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Devisor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Constant)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

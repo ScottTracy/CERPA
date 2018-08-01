@@ -1,0 +1,50 @@
+﻿@model CERPA.Models.ChildQuantityExpression
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ChildQuantityExpression</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ChildID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ChildID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Variable)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Variable)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Devisor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Devisor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Constant)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Constant)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
