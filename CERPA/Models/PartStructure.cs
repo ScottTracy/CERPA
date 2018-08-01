@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 
 namespace CERPA.Models
-{ 
+{
     public class PartStructure
     {
         [Key]
@@ -14,6 +14,6 @@ namespace CERPA.Models
         public string ChildID { get; set; }
         public bool ISChildQuantityConfigurable { get; set; }
         public int ChildQuantity { get; set; }
-        public List<string> ChildQuantityExpression { get; set; }
+        public ChildQuantityExpression ChildQuantityExpression { get; set; }
     }
 }

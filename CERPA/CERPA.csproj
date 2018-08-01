@@ -165,11 +165,6 @@
     <Content Include="Views\UsersAdmin\Index.cshtml" />
     <Content Include="ClassDiagram1.cd" />
     <Content Include="Views\Account\Login.cshtml" />
-    <Content Include="Views\PartStructures\Create.cshtml" />
-    <Content Include="Views\PartStructures\Delete.cshtml" />
-    <Content Include="Views\PartStructures\Details.cshtml" />
-    <Content Include="Views\PartStructures\Edit.cshtml" />
-    <Content Include="Views\PartStructures\Index.cshtml" />
     <Content Include="Views\PartProperties\Create.cshtml" />
     <Content Include="Views\PartProperties\Delete.cshtml" />
     <Content Include="Views\PartProperties\Details.cshtml" />
@@ -207,6 +202,11 @@
     <Content Include="Views\AssemblyProfiles\Index.cshtml" />
     <Content Include="Views\ConfigurableAssemblyVariables\AddAnother.cshtml" />
     <Content Include="Views\ConfigurableAssemblyVariables\CreateAnother.cshtml" />
+    <Content Include="Views\PartStructures\Create.cshtml" />
+    <Content Include="Views\PartStructures\Delete.cshtml" />
+    <Content Include="Views\PartStructures\Details.cshtml" />
+    <Content Include="Views\PartStructures\Edit.cshtml" />
+    <Content Include="Views\PartStructures\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
       <SubType>Designer</SubType>
@@ -304,6 +304,10 @@
     <Compile Include="Migrations\201807302055125_initial.Designer.cs">
       <DependentUpon>201807302055125_initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808011948527_childqtyexpression.cs" />
+    <Compile Include="Migrations\201808011948527_childqtyexpression.Designer.cs">
+      <DependentUpon>201808011948527_childqtyexpression.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AdminViewModel.cs" />
@@ -311,6 +315,7 @@
     <Compile Include="Models\ApplicationGroupManager.cs" />
     <Compile Include="Models\ApplicationGroupStore.cs" />
     <Compile Include="Models\AssemblyProfile.cs" />
+    <Compile Include="Models\ChildQuantityExpression.cs" />
     <Compile Include="Models\GroupStoreBase.cs" />
     <Compile Include="Models\GroupViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -329,6 +334,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201807302055125_initial.resx">
       <DependentUpon>201807302055125_initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808011948527_childqtyexpression.resx">
+      <DependentUpon>201808011948527_childqtyexpression.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

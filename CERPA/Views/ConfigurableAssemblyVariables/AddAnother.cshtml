@@ -4,7 +4,7 @@
     ViewBag.Title = "AddAnother";
 }
 
-<h2>AddAnotherr</h2>
+<h2>Add Another</h2>
 
 <p>
     @Html.ActionLink("Create New", "CreateAnother")
@@ -23,23 +23,25 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.PartID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.VariableName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ISRequired)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PartID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VariableName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ISRequired)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+            </td>
+        </tr>
+    }
 
 </table>
+<input type='button' value='Done' onclick='window.location = "@Url.Action("Create", "PartStructures")";' />
