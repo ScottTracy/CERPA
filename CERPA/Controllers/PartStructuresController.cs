@@ -50,7 +50,7 @@ namespace CERPA.Controllers
         public async Task<ActionResult> Create([Bind(Include = "ID,PartID,ChildID,ISChildQuantityConfigurable,ChildQuantity")] PartStructure partStructure)
         {
             partStructure.PartID = Session["PartId"].ToString();
-            Session["Partstructure"] = partStructure;
+            Session["ChildId"] = partStructure.ChildID;
             if(partStructure.ISChildQuantityConfigurable == true && partStructure.ChildQuantityExpression== null)
             {
                 db.PartStructures.Add(partStructure);

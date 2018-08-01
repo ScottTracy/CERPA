@@ -53,7 +53,7 @@ namespace CERPA.Controllers
             {
                 db.ChildQuantityExpressions.Add(childQuantityExpression);
                 await db.SaveChangesAsync();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index","PartStructures");
             }
 
             return View(childQuantityExpression);
