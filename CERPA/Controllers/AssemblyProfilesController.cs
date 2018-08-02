@@ -54,7 +54,24 @@ namespace CERPA.Controllers
             
             return View("AddVariables", assemblyProfile);
         }
-     
+        // GET: AssemblyProfiles/Start
+        public ActionResult Start()
+        {
+            return View();
+        }
+
+        // POST: AssemblyProfiles/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+
+        public ActionResult Start([Bind(Include = "AssemblyID,Items")] AssemblyProfile assemblyProfile)
+        {
+            Session["PartId"] = assemblyProfile.Items.PartID;
+
+
+            return RedirectToAction("AddAnother", "ConfigurableAssemblyVariables");
+        }
 
         // GET: AssemblyProfiles/Edit/5
         public async Task<ActionResult> Edit(int? id)

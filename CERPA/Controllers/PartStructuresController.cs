@@ -53,6 +53,7 @@ namespace CERPA.Controllers
             Session["ChildId"] = partStructure.ChildID;
             if(partStructure.ISChildQuantityConfigurable == true && partStructure.ChildQuantityExpression== null)
             {
+                Session["PartStructure"] = partStructure;
                 db.PartStructures.Add(partStructure);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Create", "ChildQuantityExpressions");

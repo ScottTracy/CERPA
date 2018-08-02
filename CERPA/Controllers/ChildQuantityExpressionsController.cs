@@ -51,9 +51,12 @@ namespace CERPA.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.ChildQuantityExpressions.Add(childQuantityExpression);
+                var PartID = Session["PartId"].ToString();
+               
+                db.ChildQuantityExpressions.Add(childQuantityExpression);               
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index","PartStructures");
+              
             }
 
             return View(childQuantityExpression);
