@@ -51,8 +51,10 @@ namespace CERPA.Controllers
         {
             partStructure.PartID = Session["PartId"].ToString();
             Session["ChildId"] = partStructure.ChildID;
+            AutoCreate(partStructure.ChildID);
             if(partStructure.ISChildQuantityConfigurable == true && partStructure.ChildQuantityExpression== null)
             {
+
                 Session["PartStructure"] = partStructure;
                 db.PartStructures.Add(partStructure);
                 await db.SaveChangesAsync();
@@ -132,6 +134,21 @@ namespace CERPA.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+        public async void AutoCreate(string _PartID)
+        {
+            InventoryItem item = new InventoryItem();
+            item.PartID = _PartID;
+            item.LastConfirmed = DateTime.Now;
+            item.Quantity = 0;
+            item.ReorderPoint = 0;
+            item.ReorderQuantity = 0;
+            if (ModelState.IsValid)
+            {
+                db.Inventory.Add(item);
+                await db.SaveChangesAsync();
+
+            }
         }
     }
 }

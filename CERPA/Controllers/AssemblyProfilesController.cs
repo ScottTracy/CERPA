@@ -72,6 +72,40 @@ namespace CERPA.Controllers
 
             return RedirectToAction("AddAnother", "ConfigurableAssemblyVariables");
         }
+        // GET: AssemblyProfiles/Start
+        public ActionResult FullCreate()
+        {
+            AssemblyProfile assemblyProfile = new AssemblyProfile();
+            string partId = Session["PartID"].ToString();
+            assemblyProfile = db.AssemblyProfiles.Where(a => a.Items.PartID == partId).FirstOrDefault();
+            return View(assemblyProfile);
+        }
+
+        // POST: AssemblyProfiles/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+
+        public async Task<ActionResult> FullCreate([Bind(Include = "AssemblyID,Items,Structures,Processes,Properties,Variables")] AssemblyProfile assemblyProfile)
+        {
+            string partId = Session["PartID"].ToString();
+            assemblyProfile.Structures = db.PartStructures.Where(p => p.PartID == partId).FirstOrDefault();
+            assemblyProfile.Processes = db.PartProcesses.Where(p => p.PartID == partId).FirstOrDefault();
+            assemblyProfile.Properties = db.PartProperties.Where(p => p.PartID == partId).ToList();
+            assemblyProfile.Items = db.Inventory.Where(p => p.PartID == partId).FirstOrDefault();
+            assemblyProfile.Variables = db.ConfigurableAssemblyVariables.Where(v => v.PartID == partId).ToList();
+
+            
+            if (ModelState.IsValid)
+            {
+
+                db.AssemblyProfiles.Add(assemblyProfile);
+                await db.SaveChangesAsync();
+                return RedirectToAction("Index","Home");
+            }
+
+            return RedirectToAction("Index", "Home");
+        }
 
         // GET: AssemblyProfiles/Edit/5
         public async Task<ActionResult> Edit(int? id)

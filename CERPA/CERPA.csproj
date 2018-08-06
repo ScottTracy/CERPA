@@ -213,6 +213,7 @@
     <Content Include="Views\ChildQuantityExpressions\Edit.cshtml" />
     <Content Include="Views\ChildQuantityExpressions\Index.cshtml" />
     <Content Include="Views\AssemblyProfiles\Start.cshtml" />
+    <Content Include="Views\AssemblyProfiles\FullCreate.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
       <SubType>Designer</SubType>

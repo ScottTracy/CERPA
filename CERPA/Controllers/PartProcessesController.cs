@@ -53,7 +53,7 @@ namespace CERPA.Controllers
             {
                 db.PartProcesses.Add(partProcess);
                 await db.SaveChangesAsync();
-                return RedirectToAction("Index");
+                return RedirectToAction("FullCreate","AssemblyProfiles");
             }
 
             return View(partProcess);

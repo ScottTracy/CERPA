@@ -11,6 +11,8 @@ using CERPA.Models;
 
 namespace CERPA.Controllers
 {
+    
+     
     public class InventoryItemsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -57,6 +59,21 @@ namespace CERPA.Controllers
             }
 
             return View(inventoryItem);
+        }
+        public async void AutoCreate(string _PartID)
+        {
+            InventoryItem item = new InventoryItem();
+            item.PartID = _PartID;
+            item.LastConfirmed = DateTime.Now;
+            item.Quantity = 0;
+            item.ReorderPoint = 0;
+            item.ReorderQuantity = 0;
+            if (ModelState.IsValid)
+            {
+                db.Inventory.Add(item);
+                await db.SaveChangesAsync();
+
+            }
         }
 
         // GET: InventoryItems/Edit/5
