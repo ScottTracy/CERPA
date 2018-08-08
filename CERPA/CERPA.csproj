@@ -214,6 +214,11 @@
     <Content Include="Views\ChildQuantityExpressions\Index.cshtml" />
     <Content Include="Views\AssemblyProfiles\Start.cshtml" />
     <Content Include="Views\AssemblyProfiles\FullCreate.cshtml" />
+    <Content Include="Views\VariableExpressions\Create.cshtml" />
+    <Content Include="Views\VariableExpressions\Delete.cshtml" />
+    <Content Include="Views\VariableExpressions\Details.cshtml" />
+    <Content Include="Views\VariableExpressions\Edit.cshtml" />
+    <Content Include="Views\VariableExpressions\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
       <SubType>Designer</SubType>
@@ -303,6 +308,7 @@
     <Compile Include="Controllers\PartStructuresController.cs" />
     <Compile Include="Controllers\RolesAdminController.cs" />
     <Compile Include="Controllers\UserAdminController.cs" />
+    <Compile Include="Controllers\VariableExpressionsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
