@@ -49,6 +49,7 @@ namespace CERPA.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create([Bind(Include = "OrderID,PartID,UserID,Timestamp,DueDate")] Order order)
         {
+            order.Timestamp = DateTime.Now;
             if (ModelState.IsValid)
             {
                 db.Orders.Add(order);

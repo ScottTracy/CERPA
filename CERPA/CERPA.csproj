@@ -314,6 +314,10 @@
     <Compile Include="Migrations\201808011948527_childqtyexpression.Designer.cs">
       <DependentUpon>201808011948527_childqtyexpression.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808081412074_added property expression.cs" />
+    <Compile Include="Migrations\201808081412074_added property expression.Designer.cs">
+      <DependentUpon>201808081412074_added property expression.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AdminViewModel.cs" />
@@ -333,6 +337,7 @@
     <Compile Include="Models\PartProcess.cs" />
     <Compile Include="Models\PartProperty.cs" />
     <Compile Include="Models\PartStructure.cs" />
+    <Compile Include="Models\VariableExpression.cs" />
     <Compile Include="PartProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -343,6 +348,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808011948527_childqtyexpression.resx">
       <DependentUpon>201808011948527_childqtyexpression.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808081412074_added property expression.resx">
+      <DependentUpon>201808081412074_added property expression.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

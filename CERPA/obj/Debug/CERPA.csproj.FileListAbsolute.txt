@@ -58,3 +58,4 @@ D:\projects\CERPA\CERPA\obj\Debug\CERPA.dll
 D:\projects\CERPA\CERPA\obj\Debug\CERPA.pdb
 D:\projects\CERPA\CERPA\obj\Debug\CERPA.csprojAssemblyReference.cache
 D:\projects\CERPA\CERPA\obj\Debug\CERPA.Migrations.childqtyexpression.resources
+D:\projects\CERPA\CERPA\obj\Debug\CERPA.Migrations.addedpropertyexpression.resources

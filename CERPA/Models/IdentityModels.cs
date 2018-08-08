@@ -83,6 +83,7 @@ namespace CERPA.Models
         public virtual DbSet<PartProperty> PartProperties { get; set; }
         public virtual DbSet<PartStructure> PartStructures { get; set; }
         public virtual DbSet<ConfigurableAssemblyVariable> ConfigurableAssemblyVariables {get;set;}
+        public virtual DbSet<VariableExpression> VariableExpression { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

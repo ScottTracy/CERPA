@@ -137,8 +137,14 @@ namespace CERPA.Controllers
         }
         public async void AutoCreate(string _PartID)
         {
+            if (db.Inventory.Any(i => i.PartID == _PartID))
+            {
+                return;
+            }
             InventoryItem item = new InventoryItem();
+
             item.PartID = _PartID;
+            
             item.LastConfirmed = DateTime.Now;
             item.Quantity = 0;
             item.ReorderPoint = 0;

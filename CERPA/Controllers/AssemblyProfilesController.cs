@@ -94,11 +94,11 @@ namespace CERPA.Controllers
             assemblyProfile.Properties = db.PartProperties.Where(p => p.PartID == partId).ToList();
             assemblyProfile.Items = db.Inventory.Where(p => p.PartID == partId).FirstOrDefault();
             assemblyProfile.Variables = db.ConfigurableAssemblyVariables.Where(v => v.PartID == partId).ToList();
-
+            
             
             if (ModelState.IsValid)
             {
-
+                AutoCreate(partId);
                 db.AssemblyProfiles.Add(assemblyProfile);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index","Home");
@@ -179,6 +179,27 @@ namespace CERPA.Controllers
             return View(assemblyProfile);
 
 
+        }
+        public async void AutoCreate(string _PartID)
+        {
+            if (db.Inventory.Any(i => i.PartID == _PartID))
+            {
+                return;
+            }
+            InventoryItem item = new InventoryItem();
+
+            item.PartID = _PartID;
+
+            item.LastConfirmed = DateTime.Now;
+            item.Quantity = 0;
+            item.ReorderPoint = 0;
+            item.ReorderQuantity = 0;
+            if (ModelState.IsValid)
+            {
+                db.Inventory.Add(item);
+                await db.SaveChangesAsync();
+
+            }
         }
 
     }
