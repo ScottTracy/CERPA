@@ -8,6 +8,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using CERPA.Models;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace CERPA.Controllers
 {
@@ -39,6 +40,10 @@ namespace CERPA.Controllers
         // GET: PartProperties/Create
         public ActionResult Create()
         {
+   
+            var items = db.Inventory.ToList();
+            var stringItems = items.Select(x => x.PartID).ToList();
+            ViewBag.Items = new SelectList(stringItems);
             return View();
         }
 
@@ -51,6 +56,14 @@ namespace CERPA.Controllers
         {
             if (ModelState.IsValid)
             {
+                if (partProperty.IsPropertyConfigurable == true)
+                {
+                    Session["Property"] = partProperty;
+                    
+                    db.PartProperties.Add(partProperty);
+                    await db.SaveChangesAsync();
+                    return RedirectToAction("Create","VariableExpressions");
+                }
                 db.PartProperties.Add(partProperty);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");

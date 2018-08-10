@@ -117,10 +117,7 @@ namespace CERPA.Controllers
         // GET: ConfigurableAssemblyVariables/Delete/5
         public async Task<ActionResult> Delete(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
+            
             ConfigurableAssemblyVariable configurableAssemblyVariable = await db.ConfigurableAssemblyVariables.FindAsync(id);
             if (configurableAssemblyVariable == null)
             {

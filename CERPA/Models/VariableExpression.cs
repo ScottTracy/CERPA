@@ -10,8 +10,9 @@ namespace CERPA.Models
         public int Id { get; set; }
         public int VariableId { get; set; }
         public int Devisor { get; set; }
-        public int Constant { get; set; }
+        public double Constant { get; set; }
         public int PropertyId { get; set; }
+
 
     }
 }

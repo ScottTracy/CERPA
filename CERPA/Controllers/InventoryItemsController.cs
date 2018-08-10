@@ -51,6 +51,7 @@ namespace CERPA.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create([Bind(Include = "PartID,Location,LastConfirmed,Quantity,ReorderPoint,ReorderQuantity")] InventoryItem inventoryItem)
         {
+            inventoryItem.LastConfirmed = DateTime.Now;
             if (ModelState.IsValid)
             {
                 db.Inventory.Add(inventoryItem);

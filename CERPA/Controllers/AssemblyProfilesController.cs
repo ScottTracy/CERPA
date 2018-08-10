@@ -173,7 +173,7 @@ namespace CERPA.Controllers
             base.Dispose(disposing);
         }
         //GET: ConfigurableAssemblyVariables
-        public async Task<ActionResult> AddVariables(AssemblyProfile assemblyProfile)
+        public ActionResult AddVariables(AssemblyProfile assemblyProfile)
         {
             
             return View(assemblyProfile);

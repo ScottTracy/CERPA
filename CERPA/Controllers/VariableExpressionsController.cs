@@ -39,6 +39,14 @@ namespace CERPA.Controllers
         // GET: VariableExpressions/Create
         public ActionResult Create()
         {
+            PartProperty property = (PartProperty)Session["Property"];
+            var parents = db.PartStructures.Where(v => v.ChildID == property.PartID).Select(c=>c.PartID).ToList();
+            
+            foreach(var parent in parents)
+            {
+                IEnumerable<int> IntList=(db.ConfigurableAssemblyVariables.Where(c => c.PartID == parent).Select(b=>b.ID).ToList());
+                ViewBag.Variables = new SelectList(IntList);
+            }
             return View();
         }
 
@@ -49,8 +57,12 @@ namespace CERPA.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create([Bind(Include = "Id,VariableId,Devisor,Constant,PropertyId")] VariableExpression variableExpression)
         {
+            PartProperty property = (PartProperty)Session["Property"];
+            variableExpression.PropertyId = property.ID;
+            
             if (ModelState.IsValid)
             {
+            
                 db.VariableExpression.Add(variableExpression);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");

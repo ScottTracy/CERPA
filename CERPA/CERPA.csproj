@@ -324,6 +324,10 @@
     <Compile Include="Migrations\201808081412074_added property expression.Designer.cs">
       <DependentUpon>201808081412074_added property expression.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808101321361_changed constant in variableexpression to double.cs" />
+    <Compile Include="Migrations\201808101321361_changed constant in variableexpression to double.Designer.cs">
+      <DependentUpon>201808101321361_changed constant in variableexpression to double.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AdminViewModel.cs" />
@@ -357,6 +361,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808081412074_added property expression.resx">
       <DependentUpon>201808081412074_added property expression.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808101321361_changed constant in variableexpression to double.resx">
+      <DependentUpon>201808101321361_changed constant in variableexpression to double.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

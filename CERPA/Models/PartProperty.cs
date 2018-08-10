@@ -14,7 +14,7 @@ namespace CERPA.Models
         public string PropertyName { get; set; }
         public bool IsPropertyConfigurable { get; set; }
         public string PropertyValue { get; set; }
-        public List<string>PropertyExpression { get; set; }
+       
 
     }
 }
