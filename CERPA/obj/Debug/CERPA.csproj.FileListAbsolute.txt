@@ -60,3 +60,4 @@ D:\projects\CERPA\CERPA\obj\Debug\CERPA.csproj.GenerateResource.cache
 D:\projects\CERPA\CERPA\obj\Debug\CERPA.Migrations.orderchangeidtoint.resources
 D:\projects\CERPA\CERPA\obj\Debug\CERPA.Migrations.addedconfirmationfororderandjob.resources
 D:\projects\CERPA\CERPA\obj\Debug\CERPA.Migrations.fixednullables.resources
+D:\projects\CERPA\CERPA\obj\Debug\CERPA.Migrations.fixorderiddatatypeinVariableValue.resources

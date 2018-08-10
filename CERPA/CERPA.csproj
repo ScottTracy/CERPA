@@ -334,6 +334,10 @@
     <Compile Include="Migrations\201808101639387_fixed nullables.Designer.cs">
       <DependentUpon>201808101639387_fixed nullables.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808101908163_fix orderid datatype in VariableValue.cs" />
+    <Compile Include="Migrations\201808101908163_fix orderid datatype in VariableValue.Designer.cs">
+      <DependentUpon>201808101908163_fix orderid datatype in VariableValue.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AdminViewModel.cs" />
@@ -373,6 +377,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808101639387_fixed nullables.resx">
       <DependentUpon>201808101639387_fixed nullables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808101908163_fix orderid datatype in VariableValue.resx">
+      <DependentUpon>201808101908163_fix orderid datatype in VariableValue.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

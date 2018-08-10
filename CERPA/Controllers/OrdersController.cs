@@ -55,12 +55,12 @@ namespace CERPA.Controllers
         {
             order.Timestamp = DateTime.Now;
             order.IsConfirmed = false;
-            Session["Assembly"] = order.PartID;
             order.UserID = User.Identity.GetUserId();
             if (ModelState.IsValid)
             {
                 db.Orders.Add(order);
                 await db.SaveChangesAsync();
+                Session["Order"] = order.OrderID;
                 var variables = db.ConfigurableAssemblyVariables.Where(v => v.PartID == order.PartID).ToList();
                 if (variables.Count > 0)
                 {

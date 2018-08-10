@@ -11,8 +11,11 @@ using CERPA.Models;
 
 namespace CERPA.Controllers
 {
+    
     public class VariableValuesController : Controller
     {
+        private int counter = 0;
+        private int varCount;
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: VariableValues
@@ -39,6 +42,9 @@ namespace CERPA.Controllers
         // GET: VariableValues/Create
         public ActionResult Create()
         {
+            var variables = (List<ConfigurableAssemblyVariable>)Session["Variables"];
+            varCount = variables.Count;
+            ViewBag.Variable = variables[counter].VariableName;
             return View();
         }
 
@@ -49,11 +55,21 @@ namespace CERPA.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create([Bind(Include = "Id,OrderId,ConfigurableAssemblyVariableId,Value")] VariableValue variableValue)
         {
+            var order = (Order)Session["Order"];
+            variableValue.OrderId = order.OrderID;
+            var variables = (List<ConfigurableAssemblyVariable>)Session["Variables"];
+            variableValue.ConfigurableAssemblyVariableId = variables[counter].ID;
             if (ModelState.IsValid)
             {
                 db.VariableValues.Add(variableValue);
                 await db.SaveChangesAsync();
-                return RedirectToAction("Index");
+                counter++;
+                if (counter > varCount)
+                {
+                    return RedirectToAction("Index", "Jobs");
+                }
+                return RedirectToAction("Create");
+                
             }
 
             return View(variableValue);
