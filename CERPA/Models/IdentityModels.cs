@@ -69,12 +69,13 @@ namespace CERPA.Models
         static ApplicationDbContext()
         {
 
-        }    
+        }
 
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
         }
+        
         public virtual IDbSet<ApplicationGroup> ApplicationGroups { get; set; }
         public virtual DbSet<InventoryItem> Inventory { get; set; }
         public virtual DbSet<Job> Jobs { get; set; }
@@ -83,7 +84,10 @@ namespace CERPA.Models
         public virtual DbSet<PartProperty> PartProperties { get; set; }
         public virtual DbSet<PartStructure> PartStructures { get; set; }
         public virtual DbSet<ConfigurableAssemblyVariable> ConfigurableAssemblyVariables {get;set;}
-        public virtual DbSet<VariableExpression> VariableExpression { get; set; }
+        public virtual DbSet<VariableExpression> VariableExpressions { get; set; }
+        public virtual DbSet<VariableValue> VariableValues { get; set; }
+        public virtual DbSet<QuantityExpressionValue> QuantityExpressionValues { get; set; }
+        public virtual DbSet<PropertyValue> PropertyValues { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

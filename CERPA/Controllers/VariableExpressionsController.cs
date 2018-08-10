@@ -18,7 +18,7 @@ namespace CERPA.Controllers
         // GET: VariableExpressions
         public async Task<ActionResult> Index()
         {
-            return View(await db.VariableExpression.ToListAsync());
+            return View(await db.VariableExpressions.ToListAsync());
         }
 
         // GET: VariableExpressions/Details/5
@@ -28,7 +28,7 @@ namespace CERPA.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            VariableExpression variableExpression = await db.VariableExpression.FindAsync(id);
+            VariableExpression variableExpression = await db.VariableExpressions.FindAsync(id);
             if (variableExpression == null)
             {
                 return HttpNotFound();
@@ -63,7 +63,7 @@ namespace CERPA.Controllers
             if (ModelState.IsValid)
             {
             
-                db.VariableExpression.Add(variableExpression);
+                db.VariableExpressions.Add(variableExpression);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
@@ -78,7 +78,7 @@ namespace CERPA.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            VariableExpression variableExpression = await db.VariableExpression.FindAsync(id);
+            VariableExpression variableExpression = await db.VariableExpressions.FindAsync(id);
             if (variableExpression == null)
             {
                 return HttpNotFound();
@@ -109,7 +109,7 @@ namespace CERPA.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            VariableExpression variableExpression = await db.VariableExpression.FindAsync(id);
+            VariableExpression variableExpression = await db.VariableExpressions.FindAsync(id);
             if (variableExpression == null)
             {
                 return HttpNotFound();
@@ -122,8 +122,8 @@ namespace CERPA.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(int id)
         {
-            VariableExpression variableExpression = await db.VariableExpression.FindAsync(id);
-            db.VariableExpression.Remove(variableExpression);
+            VariableExpression variableExpression = await db.VariableExpressions.FindAsync(id);
+            db.VariableExpressions.Remove(variableExpression);
             await db.SaveChangesAsync();
             return RedirectToAction("Index");
         }

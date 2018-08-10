@@ -23,15 +23,16 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
 
-                    
+
                     @if (Request.IsAuthenticated && User.IsInRole("Admin"))
                     {
                         <li>@Html.ActionLink("RolesAdmin", "Index", "RolesAdmin")</li>
                         <li>@Html.ActionLink("UsersAdmin", "Index", "UsersAdmin")</li>
                         <li>@Html.ActionLink("GroupsAdmin", "Index", "GroupsAdmin")</li>
                         <li>@Html.ActionLink("Create Assembly", "Start", "AssemblyProfiles")</li>
+                        <li>@Html.ActionLink("Create Part Property", "Create", "PartProperties")</li>
                     }
-                    
+
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

@@ -312,21 +312,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201807302055125_initial.cs" />
-    <Compile Include="Migrations\201807302055125_initial.Designer.cs">
-      <DependentUpon>201807302055125_initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808011948527_childqtyexpression.cs" />
-    <Compile Include="Migrations\201808011948527_childqtyexpression.Designer.cs">
-      <DependentUpon>201808011948527_childqtyexpression.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808081412074_added property expression.cs" />
-    <Compile Include="Migrations\201808081412074_added property expression.Designer.cs">
-      <DependentUpon>201808081412074_added property expression.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808101321361_changed constant in variableexpression to double.cs" />
-    <Compile Include="Migrations\201808101321361_changed constant in variableexpression to double.Designer.cs">
-      <DependentUpon>201808101321361_changed constant in variableexpression to double.cs</DependentUpon>
+    <Compile Include="Migrations\201808101453191_initial.cs" />
+    <Compile Include="Migrations\201808101453191_initial.Designer.cs">
+      <DependentUpon>201808101453191_initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -347,23 +335,17 @@
     <Compile Include="Models\PartProcess.cs" />
     <Compile Include="Models\PartProperty.cs" />
     <Compile Include="Models\PartStructure.cs" />
+    <Compile Include="Models\PropertyValue.cs" />
+    <Compile Include="Models\QuantityExpressionValue.cs" />
     <Compile Include="Models\VariableExpression.cs" />
+    <Compile Include="Models\VariableValue.cs" />
     <Compile Include="PartProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201807302055125_initial.resx">
-      <DependentUpon>201807302055125_initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808011948527_childqtyexpression.resx">
-      <DependentUpon>201808011948527_childqtyexpression.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808081412074_added property expression.resx">
-      <DependentUpon>201808081412074_added property expression.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808101321361_changed constant in variableexpression to double.resx">
-      <DependentUpon>201808101321361_changed constant in variableexpression to double.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201808101453191_initial.resx">
+      <DependentUpon>201808101453191_initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
