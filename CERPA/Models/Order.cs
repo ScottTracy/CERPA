@@ -10,9 +10,11 @@ namespace CERPA.Models
 
         public string PartID { get; set; }
         [Key]
-        public string OrderID { get; set; }
+        public int OrderID { get; set; }
         public string UserID { get; set; }
         public DateTime Timestamp { get; set; } 
         public DateTime DueDate { get; set; }
+        public DateTime? ConfirmedOn { get; set; }
+        public bool IsConfirmed { get; set; }
     }
 }

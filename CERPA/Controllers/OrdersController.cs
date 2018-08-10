@@ -8,6 +8,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using CERPA.Models;
+using Microsoft.AspNet.Identity;
 
 namespace CERPA.Controllers
 {
@@ -22,7 +23,7 @@ namespace CERPA.Controllers
         }
 
         // GET: Orders/Details/5
-        public async Task<ActionResult> Details(string id)
+        public async Task<ActionResult> Details(int? id)
         {
             if (id == null)
             {
@@ -39,6 +40,9 @@ namespace CERPA.Controllers
         // GET: Orders/Create
         public ActionResult Create()
         {
+            var items = db.Inventory.ToList();
+            var stringItems = items.Select(x => x.PartID).ToList();
+            ViewBag.Items = new SelectList(stringItems);
             return View();
         }
 
@@ -50,18 +54,27 @@ namespace CERPA.Controllers
         public async Task<ActionResult> Create([Bind(Include = "OrderID,PartID,UserID,Timestamp,DueDate")] Order order)
         {
             order.Timestamp = DateTime.Now;
+            order.IsConfirmed = false;
+            Session["Assembly"] = order.PartID;
+            order.UserID = User.Identity.GetUserId();
             if (ModelState.IsValid)
             {
                 db.Orders.Add(order);
                 await db.SaveChangesAsync();
-                return RedirectToAction("Index");
+                var variables = db.ConfigurableAssemblyVariables.Where(v => v.PartID == order.PartID).ToList();
+                if (variables.Count > 0)
+                {
+                    Session["Variables"] = variables;
+                    return RedirectToAction("Create","VariableValues");
+                }
+                return RedirectToAction("Index","Jobs");
             }
 
             return View(order);
         }
 
         // GET: Orders/Edit/5
-        public async Task<ActionResult> Edit(string id)
+        public async Task<ActionResult> Edit(int? id)
         {
             if (id == null)
             {
@@ -92,7 +105,7 @@ namespace CERPA.Controllers
         }
 
         // GET: Orders/Delete/5
-        public async Task<ActionResult> Delete(string id)
+        public async Task<ActionResult> Delete(int? id)
         {
             if (id == null)
             {
@@ -109,7 +122,7 @@ namespace CERPA.Controllers
         // POST: Orders/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> DeleteConfirmed(string id)
+        public async Task<ActionResult> DeleteConfirmed(int id)
         {
             Order order = await db.Orders.FindAsync(id);
             db.Orders.Remove(order);

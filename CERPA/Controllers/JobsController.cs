@@ -22,7 +22,7 @@ namespace CERPA.Controllers
         }
 
         // GET: Jobs/Details/5
-        public async Task<ActionResult> Details(string id)
+        public async Task<ActionResult> Details(int? id)
         {
             if (id == null)
             {
@@ -47,7 +47,7 @@ namespace CERPA.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "OrderID,Workstation,PartID,Start,Confirmed,UserID")] Job job)
+        public async Task<ActionResult> Create([Bind(Include = "ID,OrderID,Workstation,PartID,Start,ConfirmedOn,UserID,IsConfirmed")] Job job)
         {
             if (ModelState.IsValid)
             {
@@ -60,7 +60,7 @@ namespace CERPA.Controllers
         }
 
         // GET: Jobs/Edit/5
-        public async Task<ActionResult> Edit(string id)
+        public async Task<ActionResult> Edit(int? id)
         {
             if (id == null)
             {
@@ -79,7 +79,7 @@ namespace CERPA.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "OrderID,Workstation,PartID,Start,Confirmed,UserID")] Job job)
+        public async Task<ActionResult> Edit([Bind(Include = "ID,OrderID,Workstation,PartID,Start,ConfirmedOn,UserID,IsConfirmed")] Job job)
         {
             if (ModelState.IsValid)
             {
@@ -91,7 +91,7 @@ namespace CERPA.Controllers
         }
 
         // GET: Jobs/Delete/5
-        public async Task<ActionResult> Delete(string id)
+        public async Task<ActionResult> Delete(int? id)
         {
             if (id == null)
             {
@@ -108,7 +108,7 @@ namespace CERPA.Controllers
         // POST: Jobs/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> DeleteConfirmed(string id)
+        public async Task<ActionResult> DeleteConfirmed(int id)
         {
             Job job = await db.Jobs.FindAsync(id);
             db.Jobs.Remove(job);

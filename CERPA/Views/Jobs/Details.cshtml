@@ -11,6 +11,14 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
+            @Html.DisplayNameFor(model => model.OrderID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrderID)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.Workstation)
         </dt>
 
@@ -35,11 +43,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Confirmed)
+            @Html.DisplayNameFor(model => model.ConfirmedOn)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Confirmed)
+            @Html.DisplayFor(model => model.ConfirmedOn)
         </dd>
 
         <dt>
@@ -50,9 +58,17 @@
             @Html.DisplayFor(model => model.UserID)
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.IsConfirmed)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsConfirmed)
+        </dd>
+
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.OrderID }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

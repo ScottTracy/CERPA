@@ -57,3 +57,6 @@ D:\projects\CERPA\CERPA\obj\Debug\CERPA.pdb
 D:\projects\CERPA\CERPA\obj\Debug\CERPA.csprojAssemblyReference.cache
 D:\projects\CERPA\CERPA\obj\Debug\CERPA.Migrations.initial.resources
 D:\projects\CERPA\CERPA\obj\Debug\CERPA.csproj.GenerateResource.cache
+D:\projects\CERPA\CERPA\obj\Debug\CERPA.Migrations.orderchangeidtoint.resources
+D:\projects\CERPA\CERPA\obj\Debug\CERPA.Migrations.addedconfirmationfororderandjob.resources
+D:\projects\CERPA\CERPA\obj\Debug\CERPA.Migrations.fixednullables.resources

@@ -12,6 +12,14 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
+            @Html.DisplayNameFor(model => model.OrderID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrderID)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.Workstation)
         </dt>
 
@@ -36,11 +44,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Confirmed)
+            @Html.DisplayNameFor(model => model.ConfirmedOn)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Confirmed)
+            @Html.DisplayFor(model => model.ConfirmedOn)
         </dd>
 
         <dt>
@@ -49,6 +57,14 @@
 
         <dd>
             @Html.DisplayFor(model => model.UserID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsConfirmed)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsConfirmed)
         </dd>
 
     </dl>

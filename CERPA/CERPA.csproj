@@ -175,16 +175,6 @@
     <Content Include="Views\PartProcesses\Details.cshtml" />
     <Content Include="Views\PartProcesses\Edit.cshtml" />
     <Content Include="Views\PartProcesses\Index.cshtml" />
-    <Content Include="Views\Orders\Create.cshtml" />
-    <Content Include="Views\Orders\Delete.cshtml" />
-    <Content Include="Views\Orders\Details.cshtml" />
-    <Content Include="Views\Orders\Edit.cshtml" />
-    <Content Include="Views\Orders\Index.cshtml" />
-    <Content Include="Views\Jobs\Create.cshtml" />
-    <Content Include="Views\Jobs\Delete.cshtml" />
-    <Content Include="Views\Jobs\Details.cshtml" />
-    <Content Include="Views\Jobs\Edit.cshtml" />
-    <Content Include="Views\Jobs\Index.cshtml" />
     <Content Include="Views\ConfigurableAssemblyVariables\Create.cshtml" />
     <Content Include="Views\ConfigurableAssemblyVariables\Delete.cshtml" />
     <Content Include="Views\ConfigurableAssemblyVariables\Details.cshtml" />
@@ -219,6 +209,21 @@
     <Content Include="Views\VariableExpressions\Details.cshtml" />
     <Content Include="Views\VariableExpressions\Edit.cshtml" />
     <Content Include="Views\VariableExpressions\Index.cshtml" />
+    <Content Include="Views\Orders\Create.cshtml" />
+    <Content Include="Views\Orders\Delete.cshtml" />
+    <Content Include="Views\Orders\Details.cshtml" />
+    <Content Include="Views\Orders\Edit.cshtml" />
+    <Content Include="Views\Orders\Index.cshtml" />
+    <Content Include="Views\VariableValues\Create.cshtml" />
+    <Content Include="Views\VariableValues\Delete.cshtml" />
+    <Content Include="Views\VariableValues\Details.cshtml" />
+    <Content Include="Views\VariableValues\Edit.cshtml" />
+    <Content Include="Views\VariableValues\Index.cshtml" />
+    <Content Include="Views\Jobs\Create.cshtml" />
+    <Content Include="Views\Jobs\Delete.cshtml" />
+    <Content Include="Views\Jobs\Details.cshtml" />
+    <Content Include="Views\Jobs\Edit.cshtml" />
+    <Content Include="Views\Jobs\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
       <SubType>Designer</SubType>
@@ -309,12 +314,25 @@
     <Compile Include="Controllers\RolesAdminController.cs" />
     <Compile Include="Controllers\UserAdminController.cs" />
     <Compile Include="Controllers\VariableExpressionsController.cs" />
+    <Compile Include="Controllers\VariableValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201808101453191_initial.cs" />
     <Compile Include="Migrations\201808101453191_initial.Designer.cs">
       <DependentUpon>201808101453191_initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808101535425_order change id to int.cs" />
+    <Compile Include="Migrations\201808101535425_order change id to int.Designer.cs">
+      <DependentUpon>201808101535425_order change id to int.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808101615092_added confirmation for order and job.cs" />
+    <Compile Include="Migrations\201808101615092_added confirmation for order and job.Designer.cs">
+      <DependentUpon>201808101615092_added confirmation for order and job.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808101639387_fixed nullables.cs" />
+    <Compile Include="Migrations\201808101639387_fixed nullables.Designer.cs">
+      <DependentUpon>201808101639387_fixed nullables.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -346,6 +364,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201808101453191_initial.resx">
       <DependentUpon>201808101453191_initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808101535425_order change id to int.resx">
+      <DependentUpon>201808101535425_order change id to int.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808101615092_added confirmation for order and job.resx">
+      <DependentUpon>201808101615092_added confirmation for order and job.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808101639387_fixed nullables.resx">
+      <DependentUpon>201808101639387_fixed nullables.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -14,8 +14,9 @@ namespace CERPA.Models
         public string Workstation { get; set; }
 
         public string PartID { get; set; }
-        public DateTime Start { get; set; }
-        public DateTime Confirmed { get; set; }
+        public DateTime? Start { get; set; }
+        public DateTime? ConfirmedOn { get; set; }
         public string UserID { get; set; }
+        public bool IsConfirmed { get; set; }
     }
 }
