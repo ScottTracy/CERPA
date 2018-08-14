@@ -8,9 +8,9 @@ namespace CERPA.Models
     public class PropertyValue
     {
         public int Id { get; set; }
-        public string OrderId { get; set; }
+        public int OrderId { get; set; }
         public int PropertyId { get; set; }
-        public double ExpressionResult { get; set; }
+        public string ExpressionResult { get; set; }
 
     }
 }

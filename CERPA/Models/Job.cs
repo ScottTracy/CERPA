@@ -10,7 +10,7 @@ namespace CERPA.Models
     {
         [Key]
         public int ID { get; set; }
-        public string OrderID { get; set; }
+        public int OrderID { get; set; }
         public string Workstation { get; set; }
 
         public string PartID { get; set; }

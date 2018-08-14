@@ -9,8 +9,8 @@ namespace CERPA.Models
     {
         public int Id { get; set; }
         public string ChildID { get; set; }
-        public string Variable { get; set; }
-        public decimal Devisor { get; set; }
-        public decimal Constant { get; set; }
+        public int VariableId { get; set; }
+        public double Devisor { get; set; }
+        public double Constant { get; set; }
     }
 }

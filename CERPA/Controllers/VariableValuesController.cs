@@ -64,6 +64,10 @@ namespace CERPA.Controllers
                 db.VariableValues.Add(variableValue);
                 await db.SaveChangesAsync();
                 counter++;
+                var variableValues = new List<VariableValue>();
+                variableValues = (List<VariableValue>)Session["variableValues"];
+                variableValues.Add(variableValue);
+                Session["VariableValues"] = variableValues;
                 if (counter > varCount)
                 {
                     return RedirectToAction("Index", "Jobs");

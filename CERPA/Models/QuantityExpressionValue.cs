@@ -8,8 +8,8 @@ namespace CERPA.Models
     public class QuantityExpressionValue
     {
         public int Id { get; set; }
-        public string OrderId { get; set; }
-        public int ChildQuantityExpressionId { get; set; }
+        public int OrderId { get; set; }
+        public int? ChildQuantityExpressionId { get; set; }
         public int ChildQuantityValue { get; set; }
         
     }

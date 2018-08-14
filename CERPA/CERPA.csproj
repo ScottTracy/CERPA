@@ -318,25 +318,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201808101453191_initial.cs" />
-    <Compile Include="Migrations\201808101453191_initial.Designer.cs">
-      <DependentUpon>201808101453191_initial.cs</DependentUpon>
+    <Compile Include="Migrations\201808102059335_initial.cs" />
+    <Compile Include="Migrations\201808102059335_initial.Designer.cs">
+      <DependentUpon>201808102059335_initial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201808101535425_order change id to int.cs" />
-    <Compile Include="Migrations\201808101535425_order change id to int.Designer.cs">
-      <DependentUpon>201808101535425_order change id to int.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808101615092_added confirmation for order and job.cs" />
-    <Compile Include="Migrations\201808101615092_added confirmation for order and job.Designer.cs">
-      <DependentUpon>201808101615092_added confirmation for order and job.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808101639387_fixed nullables.cs" />
-    <Compile Include="Migrations\201808101639387_fixed nullables.Designer.cs">
-      <DependentUpon>201808101639387_fixed nullables.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808101908163_fix orderid datatype in VariableValue.cs" />
-    <Compile Include="Migrations\201808101908163_fix orderid datatype in VariableValue.Designer.cs">
-      <DependentUpon>201808101908163_fix orderid datatype in VariableValue.cs</DependentUpon>
+    <Compile Include="Migrations\201808102102057_fix datatypes.cs" />
+    <Compile Include="Migrations\201808102102057_fix datatypes.Designer.cs">
+      <DependentUpon>201808102102057_fix datatypes.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -366,20 +354,11 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201808101453191_initial.resx">
-      <DependentUpon>201808101453191_initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201808102059335_initial.resx">
+      <DependentUpon>201808102059335_initial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808101535425_order change id to int.resx">
-      <DependentUpon>201808101535425_order change id to int.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808101615092_added confirmation for order and job.resx">
-      <DependentUpon>201808101615092_added confirmation for order and job.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808101639387_fixed nullables.resx">
-      <DependentUpon>201808101639387_fixed nullables.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808101908163_fix orderid datatype in VariableValue.resx">
-      <DependentUpon>201808101908163_fix orderid datatype in VariableValue.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201808102102057_fix datatypes.resx">
+      <DependentUpon>201808102102057_fix datatypes.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
