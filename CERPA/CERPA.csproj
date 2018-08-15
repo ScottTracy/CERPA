@@ -224,6 +224,16 @@
     <Content Include="Views\Jobs\Details.cshtml" />
     <Content Include="Views\Jobs\Edit.cshtml" />
     <Content Include="Views\Jobs\Index.cshtml" />
+    <Content Include="Views\OperationsViewModels\Create.cshtml" />
+    <Content Include="Views\OperationsViewModels\Delete.cshtml" />
+    <Content Include="Views\OperationsViewModels\Details.cshtml" />
+    <Content Include="Views\OperationsViewModels\Edit.cshtml" />
+    <Content Include="Views\OperationsViewModels\ActiveJobs.cshtml" />
+    <Content Include="Views\PickOrders\Create.cshtml" />
+    <Content Include="Views\PickOrders\Delete.cshtml" />
+    <Content Include="Views\PickOrders\Details.cshtml" />
+    <Content Include="Views\PickOrders\Edit.cshtml" />
+    <Content Include="Views\PickOrders\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
       <SubType>Designer</SubType>
@@ -307,10 +317,12 @@
     <Compile Include="Controllers\InventoryItemsController.cs" />
     <Compile Include="Controllers\JobsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\OperationsViewModelsController.cs" />
     <Compile Include="Controllers\OrdersController.cs" />
     <Compile Include="Controllers\PartProcessesController.cs" />
     <Compile Include="Controllers\PartPropertiesController.cs" />
     <Compile Include="Controllers\PartStructuresController.cs" />
+    <Compile Include="Controllers\PickOrdersController.cs" />
     <Compile Include="Controllers\RolesAdminController.cs" />
     <Compile Include="Controllers\UserAdminController.cs" />
     <Compile Include="Controllers\VariableExpressionsController.cs" />
@@ -326,6 +338,18 @@
     <Compile Include="Migrations\201808102102057_fix datatypes.Designer.cs">
       <DependentUpon>201808102102057_fix datatypes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808140102131_added PickOrder model.cs" />
+    <Compile Include="Migrations\201808140102131_added PickOrder model.Designer.cs">
+      <DependentUpon>201808140102131_added PickOrder model.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808140111307_fix addedpickorder migration.cs" />
+    <Compile Include="Migrations\201808140111307_fix addedpickorder migration.Designer.cs">
+      <DependentUpon>201808140111307_fix addedpickorder migration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808141753039_unkowndb change.cs" />
+    <Compile Include="Migrations\201808141753039_unkowndb change.Designer.cs">
+      <DependentUpon>201808141753039_unkowndb change.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AdminViewModel.cs" />
@@ -340,11 +364,13 @@
     <Compile Include="Models\InventoryItem.cs" />
     <Compile Include="Models\Job.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\OperationsViewModel.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\ConfigurableAssemblyVariable.cs" />
     <Compile Include="Models\PartProcess.cs" />
     <Compile Include="Models\PartProperty.cs" />
     <Compile Include="Models\PartStructure.cs" />
+    <Compile Include="Models\PickOrder.cs" />
     <Compile Include="Models\PropertyValue.cs" />
     <Compile Include="Models\QuantityExpressionValue.cs" />
     <Compile Include="Models\VariableExpression.cs" />
@@ -359,6 +385,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808102102057_fix datatypes.resx">
       <DependentUpon>201808102102057_fix datatypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808140102131_added PickOrder model.resx">
+      <DependentUpon>201808140102131_added PickOrder model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808140111307_fix addedpickorder migration.resx">
+      <DependentUpon>201808140111307_fix addedpickorder migration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808141753039_unkowndb change.resx">
+      <DependentUpon>201808141753039_unkowndb change.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -70,7 +70,7 @@ namespace CERPA.Controllers
                 Session["VariableValues"] = variableValues;
                 if (counter > varCount)
                 {
-                    return RedirectToAction("Index", "Jobs");
+                    return RedirectToAction("ActiveJobs", "OperationsViewModels");
                 }
                 return RedirectToAction("Create");
                 

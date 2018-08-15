@@ -88,7 +88,7 @@ namespace CERPA.Models
         public virtual DbSet<VariableValue> VariableValues { get; set; }
         public virtual DbSet<QuantityExpressionValue> QuantityExpressionValues { get; set; }
         public virtual DbSet<PropertyValue> PropertyValues { get; set; }
-
+        public virtual DbSet<PickOrder> PickOrders { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             
@@ -123,6 +123,8 @@ namespace CERPA.Models
         public System.Data.Entity.DbSet<CERPA.Models.AssemblyProfile> AssemblyProfiles { get; set; }
 
         public System.Data.Entity.DbSet<CERPA.Models.ChildQuantityExpression> ChildQuantityExpressions { get; set; }
+
+        public System.Data.Entity.DbSet<CERPA.Models.OperationsViewModel> OperationsViewModels { get; set; }
     }
 
 
