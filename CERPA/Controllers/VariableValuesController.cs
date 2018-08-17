@@ -55,8 +55,7 @@ namespace CERPA.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create([Bind(Include = "Id,OrderId,ConfigurableAssemblyVariableId,Value")] VariableValue variableValue)
         {
-            var order = (Order)Session["Order"];
-            variableValue.OrderId = order.OrderID;
+            variableValue.OrderId = (Int32)Session["Order"];
             var variables = (List<ConfigurableAssemblyVariable>)Session["Variables"];
             variableValue.ConfigurableAssemblyVariableId = variables[counter].ID;
             if (ModelState.IsValid)
@@ -66,6 +65,10 @@ namespace CERPA.Controllers
                 counter++;
                 var variableValues = new List<VariableValue>();
                 variableValues = (List<VariableValue>)Session["variableValues"];
+                if (variableValues == null)
+                {
+                    variableValues = new List<VariableValue>();
+                }
                 variableValues.Add(variableValue);
                 Session["VariableValues"] = variableValues;
                 if (counter > varCount)

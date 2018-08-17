@@ -60,14 +60,14 @@ namespace CERPA.Controllers
             {
                 db.Orders.Add(order);
                 await db.SaveChangesAsync();
-                Session["Order"] = order.OrderID;
+                Session["Order"] = order.Id;
                 var variables = db.ConfigurableAssemblyVariables.Where(v => v.PartID == order.PartID).ToList();
                 if (variables.Count > 0)
                 {
                     Session["Variables"] = variables;
                     return RedirectToAction("Create","VariableValues");
                 }
-                return RedirectToAction("Index","Jobs");
+                return RedirectToAction("ActiveJobs", "OperationsViewModels");
             }
 
             return View(order);

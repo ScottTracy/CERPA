@@ -4,10 +4,10 @@
     ViewBag.Title = "ActiveJobs";
 }
 
-<h2>Index</h2>
+<h2>Active Jobs</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create","Orders")
+    @Html.ActionLink("Create New", "Create", "Orders")
 </p>
 <table class="table">
     <tr>
@@ -22,14 +22,78 @@
         </th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Job.OrderID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Job.PartID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Job.Workstation)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
 
 </table>
+<h2>Active Pick-Orders</h2>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PickOrder.OrderId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PickOrder.PartId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PickOrder.Location)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PickOrder.Destination)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PickOrder.PartQuantity)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PickOrder.OrderId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PickOrder.PartId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PickOrder.Location)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PickOrder.Destination)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.PickOrder.PartQuantity)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>
+

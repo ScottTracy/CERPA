@@ -39,6 +39,18 @@ namespace CERPA.Controllers
         // GET: ChildQuantityExpressions/Create
         public ActionResult Create()
         {
+            var partID = Session["PartId"].ToString();
+            var variables = db.ConfigurableAssemblyVariables.Where(v => v.PartID == partID).Select(v => v).ToList();
+            List<SelectListItem> assemblyVariables = new List<SelectListItem>();
+            
+                foreach (var variable in variables)
+                {
+                var listitem = new SelectListItem { Text = variable.VariableName, Value = variable.ID.ToString() };
+                assemblyVariables.Add(listitem);
+                }
+
+            ViewBag.AssemblyVariables = new SelectList(assemblyVariables, "Value", "Text");
+
             return View();
         }
 
@@ -51,7 +63,7 @@ namespace CERPA.Controllers
         {
             if (ModelState.IsValid)
             {
-                var PartID = Session["PartId"].ToString();
+                var partID = Session["PartId"].ToString();
                
                 db.ChildQuantityExpressions.Add(childQuantityExpression);               
                 await db.SaveChangesAsync();

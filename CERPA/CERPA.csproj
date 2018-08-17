@@ -234,6 +234,8 @@
     <Content Include="Views\PickOrders\Details.cshtml" />
     <Content Include="Views\PickOrders\Edit.cshtml" />
     <Content Include="Views\PickOrders\Index.cshtml" />
+    <Content Include="Views\Jobs\Operations.cshtml" />
+    <Content Include="Views\Shared\_Operations.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
       <SubType>Designer</SubType>
@@ -350,6 +352,34 @@
     <Compile Include="Migrations\201808141753039_unkowndb change.Designer.cs">
       <DependentUpon>201808141753039_unkowndb change.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808151644406_Change orderid in order model to autogenerate.cs" />
+    <Compile Include="Migrations\201808151644406_Change orderid in order model to autogenerate.Designer.cs">
+      <DependentUpon>201808151644406_Change orderid in order model to autogenerate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808151706589_Change tocomputed auto-generate.cs" />
+    <Compile Include="Migrations\201808151706589_Change tocomputed auto-generate.Designer.cs">
+      <DependentUpon>201808151706589_Change tocomputed auto-generate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808151708502_Changed back to identity.cs" />
+    <Compile Include="Migrations\201808151708502_Changed back to identity.Designer.cs">
+      <DependentUpon>201808151708502_Changed back to identity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808151811012_Changed orderid to id.cs" />
+    <Compile Include="Migrations\201808151811012_Changed orderid to id.Designer.cs">
+      <DependentUpon>201808151811012_Changed orderid to id.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808171559320_change job.orderid to int in db.cs" />
+    <Compile Include="Migrations\201808171559320_change job.orderid to int in db.Designer.cs">
+      <DependentUpon>201808171559320_change job.orderid to int in db.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808171603544_try changeorderid type.cs" />
+    <Compile Include="Migrations\201808171603544_try changeorderid type.Designer.cs">
+      <DependentUpon>201808171603544_try changeorderid type.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808171605206_change jo.orderid back to int.cs" />
+    <Compile Include="Migrations\201808171605206_change jo.orderid back to int.Designer.cs">
+      <DependentUpon>201808171605206_change jo.orderid back to int.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AdminViewModel.cs" />
@@ -394,6 +424,27 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808141753039_unkowndb change.resx">
       <DependentUpon>201808141753039_unkowndb change.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808151644406_Change orderid in order model to autogenerate.resx">
+      <DependentUpon>201808151644406_Change orderid in order model to autogenerate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808151706589_Change tocomputed auto-generate.resx">
+      <DependentUpon>201808151706589_Change tocomputed auto-generate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808151708502_Changed back to identity.resx">
+      <DependentUpon>201808151708502_Changed back to identity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808151811012_Changed orderid to id.resx">
+      <DependentUpon>201808151811012_Changed orderid to id.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808171559320_change job.orderid to int in db.resx">
+      <DependentUpon>201808171559320_change job.orderid to int in db.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808171603544_try changeorderid type.resx">
+      <DependentUpon>201808171603544_try changeorderid type.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808171605206_change jo.orderid back to int.resx">
+      <DependentUpon>201808171605206_change jo.orderid back to int.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

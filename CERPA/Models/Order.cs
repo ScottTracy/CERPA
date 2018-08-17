@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CERPA.Models
 {
@@ -10,7 +11,8 @@ namespace CERPA.Models
 
         public string PartID { get; set; }
         [Key]
-        public int OrderID { get; set; }
+        
+        public int Id { get; set; }
         public string UserID { get; set; }
         public DateTime Timestamp { get; set; } 
         public DateTime DueDate { get; set; }

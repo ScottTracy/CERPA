@@ -49,6 +49,8 @@ namespace CERPA.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create([Bind(Include = "PartID,WorkstationID,ProcessTime,UserID")] PartProcess partProcess)
         {
+            var PartId = Session["PartId"].ToString();
+            partProcess.PartID = PartId;
             if (ModelState.IsValid)
             {
                 db.PartProcesses.Add(partProcess);

@@ -103,8 +103,8 @@ namespace CERPA.Models
                 .HasKey((ApplicationUserGroup r) =>
                     new
                     {
-                        ApplicationUserId = r.ApplicationUserId,
-                        ApplicationGroupId = r.ApplicationGroupId
+                        r.ApplicationUserId,
+                        r.ApplicationGroupId
                     }).ToTable("ApplicationUserGroups");
 
             // Map Roles to Groups:
@@ -115,8 +115,8 @@ namespace CERPA.Models
             modelBuilder.Entity<ApplicationGroupRole>().HasKey((ApplicationGroupRole gr) =>
                 new
                 {
-                    ApplicationRoleId = gr.ApplicationRoleId,
-                    ApplicationGroupId = gr.ApplicationGroupId
+                    gr.ApplicationRoleId,
+                    gr.ApplicationGroupId
                 }).ToTable("ApplicationGroupRoles");
         }
 

@@ -8,6 +8,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using CERPA.Models;
+using System.Collections;
 
 namespace CERPA.Controllers
 {
@@ -18,6 +19,15 @@ namespace CERPA.Controllers
         // GET: Jobs
         public async Task<ActionResult> Index()
         {
+
+            return View(await db.Jobs.ToListAsync());
+        }
+        // GET: Jobs
+        public async Task<ActionResult> Operations()
+        {
+            var pickorders = await db.PickOrders.ToListAsync();
+            IEnumerable pickOrders = (IEnumerable)pickorders;
+            ViewData["pickOrders"] = pickOrders;
 
             return View(await db.Jobs.ToListAsync());
         }
