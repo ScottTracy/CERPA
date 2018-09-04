@@ -26,7 +26,7 @@ namespace CERPA.Controllers
         public async Task<ActionResult> _Operations()
         {
             var pickorders= await db.PickOrders.ToListAsync();
-            IEnumerable pickOrders = (IEnumerable)pickorders;
+            IEnumerable pickOrders = pickorders;
             return View(pickOrders);
         }
         // GET: PickOrders/Details/5

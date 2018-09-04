@@ -68,3 +68,4 @@ D:\projects\CERPA\CERPA\obj\Debug\CERPA.Migrations.Changedorderidtoid.resources
 D:\projects\CERPA\CERPA\obj\Debug\CERPA.Migrations.changejoborderidtointindb.resources
 D:\projects\CERPA\CERPA\obj\Debug\CERPA.Migrations.trychangeorderidtype.resources
 D:\projects\CERPA\CERPA\obj\Debug\CERPA.Migrations.changejoorderidbacktoint.resources
+D:\projects\CERPA\CERPA\obj\Debug\CERPA.Migrations.removeviewmodel.resources

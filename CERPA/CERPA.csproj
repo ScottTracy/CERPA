@@ -224,11 +224,6 @@
     <Content Include="Views\Jobs\Details.cshtml" />
     <Content Include="Views\Jobs\Edit.cshtml" />
     <Content Include="Views\Jobs\Index.cshtml" />
-    <Content Include="Views\OperationsViewModels\Create.cshtml" />
-    <Content Include="Views\OperationsViewModels\Delete.cshtml" />
-    <Content Include="Views\OperationsViewModels\Details.cshtml" />
-    <Content Include="Views\OperationsViewModels\Edit.cshtml" />
-    <Content Include="Views\OperationsViewModels\ActiveJobs.cshtml" />
     <Content Include="Views\PickOrders\Create.cshtml" />
     <Content Include="Views\PickOrders\Delete.cshtml" />
     <Content Include="Views\PickOrders\Details.cshtml" />
@@ -236,6 +231,9 @@
     <Content Include="Views\PickOrders\Index.cshtml" />
     <Content Include="Views\Jobs\Operations.cshtml" />
     <Content Include="Views\Shared\_Operations.cshtml" />
+    <Content Include="Views\Jobs\ActiveJobs.cshtml" />
+    <Content Include="Views\Jobs\JobsByWorkstation.cshtml" />
+    <Content Include="Views\Jobs\JobsByUser.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
       <SubType>Designer</SubType>
@@ -319,7 +317,6 @@
     <Compile Include="Controllers\InventoryItemsController.cs" />
     <Compile Include="Controllers\JobsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\OperationsViewModelsController.cs" />
     <Compile Include="Controllers\OrdersController.cs" />
     <Compile Include="Controllers\PartProcessesController.cs" />
     <Compile Include="Controllers\PartPropertiesController.cs" />
@@ -380,6 +377,10 @@
     <Compile Include="Migrations\201808171605206_change jo.orderid back to int.Designer.cs">
       <DependentUpon>201808171605206_change jo.orderid back to int.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808171922561_remove viewmodel.cs" />
+    <Compile Include="Migrations\201808171922561_remove viewmodel.Designer.cs">
+      <DependentUpon>201808171922561_remove viewmodel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AdminViewModel.cs" />
@@ -394,7 +395,6 @@
     <Compile Include="Models\InventoryItem.cs" />
     <Compile Include="Models\Job.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\OperationsViewModel.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\ConfigurableAssemblyVariable.cs" />
     <Compile Include="Models\PartProcess.cs" />
@@ -445,6 +445,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808171605206_change jo.orderid back to int.resx">
       <DependentUpon>201808171605206_change jo.orderid back to int.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808171922561_remove viewmodel.resx">
+      <DependentUpon>201808171922561_remove viewmodel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

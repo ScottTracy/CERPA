@@ -124,7 +124,7 @@ namespace CERPA.Models
 
         public System.Data.Entity.DbSet<CERPA.Models.ChildQuantityExpression> ChildQuantityExpressions { get; set; }
 
-        public System.Data.Entity.DbSet<CERPA.Models.OperationsViewModel> OperationsViewModels { get; set; }
+        
     }
 
 
