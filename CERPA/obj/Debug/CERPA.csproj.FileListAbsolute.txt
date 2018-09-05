@@ -69,3 +69,5 @@ D:\projects\CERPA\CERPA\obj\Debug\CERPA.Migrations.changejoborderidtointindb.res
 D:\projects\CERPA\CERPA\obj\Debug\CERPA.Migrations.trychangeorderidtype.resources
 D:\projects\CERPA\CERPA\obj\Debug\CERPA.Migrations.changejoorderidbacktoint.resources
 D:\projects\CERPA\CERPA\obj\Debug\CERPA.Migrations.removeviewmodel.resources
+D:\projects\CERPA\CERPA\obj\Debug\CERPA.Migrations.AddGroupRole.resources
+D:\projects\CERPA\CERPA\obj\Debug\CERPA.Migrations.Addusergroups.resources

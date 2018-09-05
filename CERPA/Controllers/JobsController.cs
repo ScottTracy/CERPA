@@ -139,6 +139,36 @@ namespace CERPA.Controllers
             }
             return View(job);
         }
+        // GET: Jobs/Assign/5
+        public async Task<ActionResult> Assign(int? id)
+        {
+            var groupId = db.ApplicationGroups.Where(a => a.Name == "Production").Select(a => a.Id).First();
+            var productionEmployees = db.ApplicationUsers.Where(g => g.ApplicationGroupId == groupId).Select(g => g.ApplicationUserId).ToList();
+            
+                                    
+            List<SelectListItem> prodEmployees = new List<SelectListItem>();
+            foreach (var employee in productionEmployees)
+            {
+
+                prodEmployees.Add(new SelectListItem
+                {
+
+                    Text = db.Users.Where(u => u.Id == employee).Select(u => u.UserName).First(),
+                    Value = employee
+                });
+            }
+            ViewData["ProductionEmployees"] = prodEmployees;
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Job job = await db.Jobs.FindAsync(id);
+            if (job == null)
+            {
+                return HttpNotFound();
+            }
+            return View(job);
+        }
 
         // POST: Jobs/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
@@ -146,6 +176,21 @@ namespace CERPA.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Edit([Bind(Include = "ID,OrderID,Workstation,PartID,Start,ConfirmedOn,UserID,IsConfirmed")] Job job)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(job).State = EntityState.Modified;
+                await db.SaveChangesAsync();
+                return RedirectToAction("Index");
+            }
+            return View(job);
+        }
+        // POST: Jobs/Assign/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Assign([Bind(Include = "ID,OrderID,Workstation,PartID,Start,ConfirmedOn,UserID,IsConfirmed")] Job job)
         {
             if (ModelState.IsValid)
             {

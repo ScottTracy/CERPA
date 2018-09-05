@@ -234,6 +234,7 @@
     <Content Include="Views\Jobs\ActiveJobs.cshtml" />
     <Content Include="Views\Jobs\JobsByWorkstation.cshtml" />
     <Content Include="Views\Jobs\JobsByUser.cshtml" />
+    <Content Include="Views\Jobs\Assign.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
       <SubType>Designer</SubType>
@@ -381,6 +382,14 @@
     <Compile Include="Migrations\201808171922561_remove viewmodel.Designer.cs">
       <DependentUpon>201808171922561_remove viewmodel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201809051804097_Add GroupRole.cs" />
+    <Compile Include="Migrations\201809051804097_Add GroupRole.Designer.cs">
+      <DependentUpon>201809051804097_Add GroupRole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809051812551_Add usergroups.cs" />
+    <Compile Include="Migrations\201809051812551_Add usergroups.Designer.cs">
+      <DependentUpon>201809051812551_Add usergroups.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AdminViewModel.cs" />
@@ -448,6 +457,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808171922561_remove viewmodel.resx">
       <DependentUpon>201808171922561_remove viewmodel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809051804097_Add GroupRole.resx">
+      <DependentUpon>201809051804097_Add GroupRole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809051812551_Add usergroups.resx">
+      <DependentUpon>201809051812551_Add usergroups.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

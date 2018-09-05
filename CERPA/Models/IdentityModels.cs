@@ -89,6 +89,8 @@ namespace CERPA.Models
         public virtual DbSet<QuantityExpressionValue> QuantityExpressionValues { get; set; }
         public virtual DbSet<PropertyValue> PropertyValues { get; set; }
         public virtual DbSet<PickOrder> PickOrders { get; set; }
+        public virtual DbSet<ApplicationGroupRole> GroupRoles { get; set; }
+        public virtual DbSet<ApplicationUserGroup> ApplicationUsers { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             
