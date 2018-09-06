@@ -157,7 +157,7 @@ namespace CERPA.Controllers
                     Value = employee
                 });
             }
-            ViewData["ProductionEmployees"] = prodEmployees;
+            ViewData["ProductionEmployees"] = new SelectList(prodEmployees,"Value","Text");
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
