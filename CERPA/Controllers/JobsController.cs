@@ -13,6 +13,7 @@ using Microsoft.AspNet.Identity;
 
 namespace CERPA.Controllers
 {
+   
     public class JobsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -23,6 +24,7 @@ namespace CERPA.Controllers
             
             return View(activeJobs.Where(j=>j.IsConfirmed==false).Select(c=>c).ToList());
         }
+        
         // GET: Jobs
         public async Task<ActionResult> JobsByUser()
         {
@@ -71,8 +73,16 @@ namespace CERPA.Controllers
         // GET: Jobs
         public async Task<ActionResult> Index()
         {
-
-            return View(await db.Jobs.ToListAsync());
+            var jobs = await db.Jobs.ToListAsync();
+            foreach(var job in jobs)
+            {
+                if (job.UserID != null)
+                {
+                    job.UserID = GetUsername(job.UserID);
+                }
+                
+            }
+            return View(jobs);
         }
         // GET: Jobs
         public async Task<ActionResult> Operations()
@@ -139,6 +149,12 @@ namespace CERPA.Controllers
             }
             return View(job);
         }
+        public  string GetUsername(string Id)
+        {
+            var userName =  db.Users.Where(u => u.Id == Id).Select(u => u.UserName).First();
+            return userName;
+        }
+
         // GET: Jobs/Assign/5
         public async Task<ActionResult> Assign(int? id)
         {
@@ -153,7 +169,7 @@ namespace CERPA.Controllers
                 prodEmployees.Add(new SelectListItem
                 {
 
-                    Text = db.Users.Where(u => u.Id == employee).Select(u => u.UserName).First(),
+                    Text = GetUsername(employee),
                     Value = employee
                 });
             }
@@ -167,7 +183,9 @@ namespace CERPA.Controllers
             {
                 return HttpNotFound();
             }
+            Session["Job"] = job;
             return View(job);
+           
         }
 
         // POST: Jobs/Edit/5
@@ -192,6 +210,11 @@ namespace CERPA.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Assign([Bind(Include = "ID,OrderID,Workstation,PartID,Start,ConfirmedOn,UserID,IsConfirmed")] Job job)
         {
+            var jobOriginal = (Job)Session["Job"];
+            job.ID = jobOriginal.ID;
+            job.OrderID = jobOriginal.OrderID;
+            job.PartID = jobOriginal.PartID;
+            job.Workstation = jobOriginal.Workstation;
             if (ModelState.IsValid)
             {
                 db.Entry(job).State = EntityState.Modified;

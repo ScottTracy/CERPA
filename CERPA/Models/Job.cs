@@ -18,5 +18,11 @@ namespace CERPA.Models
         public DateTime? ConfirmedOn { get; set; }
         public string UserID { get; set; }
         public bool IsConfirmed { get; set; }
+        ApplicationDbContext db = new ApplicationDbContext();
+        public string GetUsername(string Id)
+        {
+            var userName = db.Users.Where(u => u.Id == Id).Select(u => u.UserName).First();
+            return userName;
+        }
     }
 }
