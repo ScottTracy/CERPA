@@ -235,6 +235,9 @@
     <Content Include="Views\Jobs\JobsByWorkstation.cshtml" />
     <Content Include="Views\Jobs\JobsByUser.cshtml" />
     <Content Include="Views\Jobs\Assign.cshtml" />
+    <Content Include="Views\Jobs\CurrentJob.cshtml" />
+    <Content Include="Views\Jobs\Start.cshtml" />
+    <Content Include="Views\Shared\_jobInventory.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
       <SubType>Designer</SubType>
@@ -390,6 +393,22 @@
     <Compile Include="Migrations\201809051812551_Add usergroups.Designer.cs">
       <DependentUpon>201809051812551_Add usergroups.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201809071721258_Added job reference to Pickorders.cs" />
+    <Compile Include="Migrations\201809071721258_Added job reference to Pickorders.Designer.cs">
+      <DependentUpon>201809071721258_Added job reference to Pickorders.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809071813586_change jobId in Pickorder to string.cs" />
+    <Compile Include="Migrations\201809071813586_change jobId in Pickorder to string.Designer.cs">
+      <DependentUpon>201809071813586_change jobId in Pickorder to string.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809071824044_change jobId in Pickorder back to int.cs" />
+    <Compile Include="Migrations\201809071824044_change jobId in Pickorder back to int.Designer.cs">
+      <DependentUpon>201809071824044_change jobId in Pickorder back to int.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809071836416_fix things.cs" />
+    <Compile Include="Migrations\201809071836416_fix things.Designer.cs">
+      <DependentUpon>201809071836416_fix things.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AdminViewModel.cs" />
@@ -463,6 +482,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201809051812551_Add usergroups.resx">
       <DependentUpon>201809051812551_Add usergroups.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809071721258_Added job reference to Pickorders.resx">
+      <DependentUpon>201809071721258_Added job reference to Pickorders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809071813586_change jobId in Pickorder to string.resx">
+      <DependentUpon>201809071813586_change jobId in Pickorder to string.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809071824044_change jobId in Pickorder back to int.resx">
+      <DependentUpon>201809071824044_change jobId in Pickorder back to int.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809071836416_fix things.resx">
+      <DependentUpon>201809071836416_fix things.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

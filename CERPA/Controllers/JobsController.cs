@@ -96,9 +96,38 @@ namespace CERPA.Controllers
 
             return View(await db.Jobs.ToListAsync());
         }
-
-        // GET: Jobs/Details/5
-        public async Task<ActionResult> Details(int? id)
+        // GET: Jobs/CurrentJob/5
+        public async Task<ActionResult> CurrentJob(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Job job = await db.Jobs.FindAsync(id);
+            if (job == null)
+            {
+                return HttpNotFound();
+            }
+            return View(job);
+        }
+        public async Task<ActionResult> Start(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Job job = await db.Jobs.FindAsync(id);
+            if (job == null)
+            {
+                return HttpNotFound();
+            }
+            job.Start = DateTime.Now;
+            db.Entry(job).State = EntityState.Modified;
+            await db.SaveChangesAsync();
+            return View(job);
+        }
+            // GET: Jobs/Details/5
+            public async Task<ActionResult> Details(int? id)
         {
             if (id == null)
             {
@@ -383,7 +412,8 @@ namespace CERPA.Controllers
                 IsConfirmed = false,
                 Location = db.Inventory.Where(i => i.PartID == partId && i.Location != job.Workstation).Select(p => p.Location).First(),
                 Destination = job.Workstation,
-                PartQuantity = partQuantity
+                PartQuantity = partQuantity,
+                JobId = job.ID
             };
             return pickOrder;
         }

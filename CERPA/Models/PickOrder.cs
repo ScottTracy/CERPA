@@ -17,5 +17,6 @@ namespace CERPA.Models
         public bool IsConfirmed { get; set; }
         public string UserId { get; set; }
         public int PartQuantity { get; set; }
+        public int JobId { get; set; }
     }
 }

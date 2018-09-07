@@ -1,0 +1,74 @@
+﻿@model CERPA.Models.Job
+
+@{
+    ViewBag.Title = "Start";
+}
+
+<h2>Start</h2>
+
+<div>
+    <h4>Job</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.OrderID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrderID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Workstation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Workstation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PartID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PartID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Start)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Start)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ConfirmedOn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ConfirmedOn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsConfirmed)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsConfirmed)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

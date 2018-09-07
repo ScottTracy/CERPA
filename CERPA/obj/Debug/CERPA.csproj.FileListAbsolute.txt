@@ -71,3 +71,7 @@ D:\projects\CERPA\CERPA\obj\Debug\CERPA.Migrations.changejoorderidbacktoint.reso
 D:\projects\CERPA\CERPA\obj\Debug\CERPA.Migrations.removeviewmodel.resources
 D:\projects\CERPA\CERPA\obj\Debug\CERPA.Migrations.AddGroupRole.resources
 D:\projects\CERPA\CERPA\obj\Debug\CERPA.Migrations.Addusergroups.resources
+D:\projects\CERPA\CERPA\obj\Debug\CERPA.Migrations.AddedjobreferencetoPickorders.resources
+D:\projects\CERPA\CERPA\obj\Debug\CERPA.Migrations.changejobIdinPickordertostring.resources
+D:\projects\CERPA\CERPA\obj\Debug\CERPA.Migrations.changejobIdinPickorderbacktoint.resources
+D:\projects\CERPA\CERPA\obj\Debug\CERPA.Migrations.fixthings.resources
