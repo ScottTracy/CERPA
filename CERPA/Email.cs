@@ -12,7 +12,7 @@ namespace CERPA
         static bool enableSSL = true;
         public static void SendEmail(string emailFromAddress, string password,string emailToAddress, string subject, string body)
         {
-            using (System.Net.Mail.MailMessage mail = new System.Net.Mail.MailMessage())
+            using (MailMessage mail = new MailMessage())
             {
                 mail.From = new MailAddress(emailFromAddress);
                 mail.To.Add(emailToAddress);
@@ -28,5 +28,6 @@ namespace CERPA
                 }
             }
         }
+        
     }
 }

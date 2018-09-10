@@ -14,7 +14,7 @@ using CERPA.Models;
 
 namespace CERPA.Models
 {
-    // Configure the application user manager used in this application. UserManager is defined in ASP.NET Identity and is used by the application.
+    
 
     public class ApplicationUserManager : UserManager<ApplicationUser, string>
     {
@@ -27,13 +27,11 @@ namespace CERPA.Models
             IOwinContext context)
         {
             var manager = new ApplicationUserManager(new UserStore<ApplicationUser, ApplicationRole, string, ApplicationUserLogin, ApplicationUserRole, ApplicationUserClaim>(context.Get<ApplicationDbContext>()));
-            // Configure validation logic for usernames
             manager.UserValidator = new UserValidator<ApplicationUser>(manager)
             {
                 AllowOnlyAlphanumericUserNames = false,
                 RequireUniqueEmail = true
             };
-            // Configure validation logic for passwords
             manager.PasswordValidator = new PasswordValidator
             {
                 RequiredLength = 6,
@@ -42,12 +40,11 @@ namespace CERPA.Models
                 RequireLowercase = true,
                 RequireUppercase = true,
             };
-            // Configure user lockout defaults
+            
             manager.UserLockoutEnabledByDefault = true;
             manager.DefaultAccountLockoutTimeSpan = TimeSpan.FromMinutes(5);
             manager.MaxFailedAccessAttemptsBeforeLockout = 5;
-            // Register two factor authentication providers. This application uses Phone and Emails as a step of receiving a code for verifying the user
-            // You can write your own provider and plug in here.
+            
             manager.RegisterTwoFactorProvider("PhoneCode", new PhoneNumberTokenProvider<ApplicationUser>
             {
                 MessageFormat = "Your security code is: {0}"
@@ -69,7 +66,7 @@ namespace CERPA.Models
         }
     }
 
-    // Configure the RoleManager used in the application. RoleManager is defined in the ASP.NET Identity core assembly
+    
     public class ApplicationRoleManager : RoleManager<ApplicationRole>
     {
         public ApplicationRoleManager(IRoleStore<ApplicationRole, string> roleStore)
@@ -87,7 +84,7 @@ namespace CERPA.Models
     {
         public Task SendAsync(IdentityMessage message)
         {
-            // Plug in your email service here to send an email.
+            // Plug in  email service here to send an email.
             return Task.FromResult(0);
         }
     }
@@ -96,18 +93,16 @@ namespace CERPA.Models
     {
         public Task SendAsync(IdentityMessage message)
         {
-            // Plug in your sms service here to send a text message.
+            
             return Task.FromResult(0);
         }
     }
 
-    // This is useful if you do not want to tear down the database each time you run the application.
-    // public class ApplicationDbInitializer : DropCreateDatabaseAlways<ApplicationDbContext>
-    // This example shows you how to create a new database if the Model changes
+   
     public class ApplicationDbInitializer { 
         
         
-        //Create User=Admin@Admin.com with password=Admin@123456 in the Admin role        
+                
         public static void Seed(ApplicationDbContext db)
         {
             var userManager = HttpContext.Current
@@ -118,7 +113,7 @@ namespace CERPA.Models
             const string password = "Admin@123456";
             const string roleName = "Admin";
 
-            //Create Role Admin if it does not exist
+            
             var role = roleManager.FindByName(roleName);
             if (role == null)
             {
