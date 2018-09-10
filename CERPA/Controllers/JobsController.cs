@@ -108,6 +108,7 @@ namespace CERPA.Controllers
             {
                 return HttpNotFound();
             }
+            ViewData["JobId"] = job.ID;
             return View(job);
         }
         public async Task<ActionResult> Start(int? id)
@@ -122,6 +123,7 @@ namespace CERPA.Controllers
                 return HttpNotFound();
             }
             job.Start = DateTime.Now;
+            ViewData["JobId"] = job.ID;
             db.Entry(job).State = EntityState.Modified;
             await db.SaveChangesAsync();
             return View(job);

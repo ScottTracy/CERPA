@@ -23,9 +23,9 @@ namespace CERPA.Controllers
         }
         public async Task<ActionResult> _jobInventory()
         {
-            var JobId = (string)ViewData["JobId"];
-            //await db.PickOrders.Where(o => o.Id == JobId).Select(o => 0).ToListAsync();
-            return View(await db.PickOrders.ToListAsync());
+            var JobId = (int)ViewData["JobId"];
+            var pickOrders= await db.PickOrders.Where(o => o.Id == JobId).Select(o => 0).ToListAsync();
+            return View(pickOrders);
         }
         // GET: PickOrders
         public async Task<ActionResult> _Operations()

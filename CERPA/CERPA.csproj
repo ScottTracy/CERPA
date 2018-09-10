@@ -330,6 +330,7 @@
     <Compile Include="Controllers\UserAdminController.cs" />
     <Compile Include="Controllers\VariableExpressionsController.cs" />
     <Compile Include="Controllers\VariableValuesController.cs" />
+    <Compile Include="Email.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
