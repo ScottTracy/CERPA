@@ -9,13 +9,12 @@ using System.Collections.Generic;
 
 namespace CERPA.Models
 {
-    // You will not likely need to customize there, but it is necessary/easier to create our own 
-    // project-specific implementations, so here they are:
+    
     public class ApplicationUserLogin : IdentityUserLogin<string> { }
     public class ApplicationUserClaim : IdentityUserClaim<string> { }
     public class ApplicationUserRole : IdentityUserRole<string> { }
 
-    // Must be expressed in terms of our custom Role and other types:
+    
     public class ApplicationUser
         : IdentityUser<string, ApplicationUserLogin,
         ApplicationUserRole, ApplicationUserClaim>
@@ -24,7 +23,7 @@ namespace CERPA.Models
         {
             this.Id = Guid.NewGuid().ToString();
 
-            // Add any custom User properties/code here
+            
         }
 
 
@@ -38,7 +37,7 @@ namespace CERPA.Models
     }
 
 
-    // Must be expressed in terms of our custom UserRole:
+    
     public class ApplicationRole : IdentityRole<string, ApplicationUserRole>
     {
         public ApplicationRole()
@@ -52,11 +51,11 @@ namespace CERPA.Models
             this.Name = name;
         }
 
-        // Add any custom Role properties/code here
+        
     }
 
 
-    // Must be expressed in terms of our custom types:
+    
     public class ApplicationDbContext
         : IdentityDbContext<ApplicationUser, ApplicationRole,
         string, ApplicationUserLogin, ApplicationUserRole, ApplicationUserClaim>

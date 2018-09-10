@@ -7,11 +7,14 @@ namespace CERPA
 {
     public partial class Email
     {
+        
         static string smtpAddress = "smtp.gmail.com";
         static int portNumber = 587;
         static bool enableSSL = true;
         public static void SendEmail(string emailFromAddress, string password,string emailToAddress, string subject, string body)
         {
+            var User = System.Web.HttpContext.Current.User;
+            User.Identity.Name.
             using (MailMessage mail = new MailMessage())
             {
                 mail.From = new MailAddress(emailFromAddress);
