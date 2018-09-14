@@ -64,6 +64,18 @@ namespace CERPA.Models
             }
             return manager;
         }
+        public ApplicationUser GetUser()
+        {
+            ApplicationUser user = System.Web.HttpContext.Current.GetOwinContext()
+            .GetUserManager<ApplicationUserManager>()
+            .FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
+            return user;
+        }
+        public string GetEmail()
+        {
+            var user = GetUser();
+            return user.Email;
+        }
     }
 
     
@@ -159,4 +171,5 @@ namespace CERPA.Models
             return new ApplicationSignInManager(context.GetUserManager<ApplicationUserManager>(), context.Authentication);
         }
     }
+
 }

@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System;
 using System.Collections.Generic;
+using System.Web;
+using Microsoft.AspNet.Identity.Owin;
 
 namespace CERPA.Models
 {
@@ -25,6 +27,7 @@ namespace CERPA.Models
 
             
         }
+        
 
 
         public async Task<ClaimsIdentity>

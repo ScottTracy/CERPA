@@ -1,20 +1,39 @@
-﻿using System;
-using System.Net;
+﻿using System.Net;
 using System.Net.Mail;
-
+using Microsoft.AspNet.Identity;
+using CERPA.Models;
+using System.Web;
+using Microsoft.AspNet.Identity.Owin;
 
 namespace CERPA
 {
-    public partial class Email
+    public class Email
     {
+
+        ApplicationUser user = GetUser();
         
         static string smtpAddress = "smtp.gmail.com";
         static int portNumber = 587;
         static bool enableSSL = true;
-        public static void SendEmail(string emailFromAddress, string password,string emailToAddress, string subject, string body)
+        public static string GetMailAddress()
         {
-            var User = System.Web.HttpContext.Current.User;
-            User.Identity.Name.
+            ApplicationUser user = GetUser();
+            return user.Email;
+        }
+        public static string GetPassword()
+        {
+            ApplicationUser user = GetUser();
+            return user.PasswordHash;
+        }
+        public static ApplicationUser GetUser()
+        {
+            ApplicationUser user = HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(HttpContext.Current.User.Identity.GetUserId());
+            return user;
+        }
+        public static void SendEmail( string emailToAddress, string subject, string body)
+        {
+            string password = GetPassword();
+            string emailFromAddress = GetMailAddress();
             using (MailMessage mail = new MailMessage())
             {
                 mail.From = new MailAddress(emailFromAddress);
@@ -31,6 +50,7 @@ namespace CERPA
                 }
             }
         }
+       
         
     }
 }
