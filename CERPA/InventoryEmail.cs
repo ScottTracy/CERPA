@@ -11,8 +11,12 @@ namespace CERPA
         private string emailToAddress = "";
         
 
-        public void CreateInventoryEmail(Job job )
+        public void CreateInventoryEmail(Job job,string item, string quantity )
         {
+            string subject = (job.ID).ToString();
+           
+            string body ="Incorrect Part Quanity."+item +": "+ quantity;
+            SendEmail(emailToAddress, subject, body);
             
         }
     }
