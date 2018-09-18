@@ -37,14 +37,9 @@ namespace CERPA.Controllers
                 _userManager = value;
             }
         }
-        [HttpGet]
-        public async Task<string> GetCurrentUserId()
-        {
-            ApplicationUser usr = await GetCurrentUserAsync();
-            return usr?.Id;
-        }
+        
 
-        private Task<ApplicationUser> GetCurrentUserAsync() => _userManager.GetUserAsync(HttpContext.User);
+        
 
         //
         // GET: /Account/Login

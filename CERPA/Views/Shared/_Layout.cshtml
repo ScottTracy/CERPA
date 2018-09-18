@@ -29,10 +29,23 @@
                         <li>@Html.ActionLink("RolesAdmin", "Index", "RolesAdmin")</li>
                         <li>@Html.ActionLink("UsersAdmin", "Index", "UsersAdmin")</li>
                         <li>@Html.ActionLink("GroupsAdmin", "Index", "GroupsAdmin")</li>
+
+                    }
+                    @if (Request.IsAuthenticated && User.IsInRole("WebsiteAccess"))
+                    {
+                        <li>@Html.ActionLink("View Jobs", "JobsByUser", "Jobs")</li>
+                        <li>@Html.ActionLink("View Pickorders", "Index", "PickOrders")</li>
+                        <li>@Html.ActionLink("Inventory", "Index", "InventoryItem")</li>
+
+                    }
+                    @if (Request.IsAuthenticated && User.IsInRole("CanCreateOrders"))
+                    {
                         <li>@Html.ActionLink("Create Assembly", "Start", "AssemblyProfiles")</li>
                         <li>@Html.ActionLink("Create Part Property", "Create", "PartProperties")</li>
-                        <li>@Html.ActionLink("Create Order","Create","Orders")</li>
+                        <li>@Html.ActionLink("Create Order", "Create", "Orders")</li>
                     }
+
+
 
                 </ul>
                 @Html.Partial("_LoginPartial")

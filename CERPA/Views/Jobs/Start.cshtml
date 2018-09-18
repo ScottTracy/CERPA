@@ -33,42 +33,10 @@
         <dd>
             @Html.DisplayFor(model => model.PartID)
         </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Start)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Start)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ConfirmedOn)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ConfirmedOn)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.UserID)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.UserID)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.IsConfirmed)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.IsConfirmed)
-        </dd>
-
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Start", "Start", new { id = Model.ID }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
+<partial name="_jobInventory" />
