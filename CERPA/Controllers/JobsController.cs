@@ -33,7 +33,7 @@ namespace CERPA.Controllers
             {
                 return RedirectToAction("Login","Account");
             }
-            IEnumerable<string> workstations = db.Jobs.Select(j => j.Workstation).Distinct().ToList();
+            IEnumerable<string> workstations = db.Jobs.Where(j=>j.IsConfirmed== false).Select(j => j.Workstation).Distinct().ToList();
             List<SelectListItem> stations = new List<SelectListItem>();
             foreach(var item in workstations)
             {
@@ -44,7 +44,7 @@ namespace CERPA.Controllers
                 });
             }
             ViewData["Workstations"] = stations; 
-            var jobsByUser =await db.Jobs.Where(j=>j.UserID==UserId).Select(j=>j).ToListAsync();
+            var jobsByUser =await db.Jobs.Where(j=>j.UserID==UserId&& j.IsConfirmed== false).Select(j=>j).ToListAsync();
             return View(jobsByUser);
         }
         public ActionResult GetJobsByWorkstation(string workstation)

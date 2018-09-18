@@ -35,7 +35,7 @@
                     {
                         <li>@Html.ActionLink("View Jobs", "JobsByUser", "Jobs")</li>
                         <li>@Html.ActionLink("View Pickorders", "Index", "PickOrders")</li>
-                        <li>@Html.ActionLink("Inventory", "Index", "InventoryItem")</li>
+                        <li>@Html.ActionLink("Inventory", "Index", "InventoryItems")</li>
 
                     }
                     @if (Request.IsAuthenticated && User.IsInRole("CanCreateOrders"))
