@@ -86,7 +86,7 @@ namespace CERPA.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
 
-        public async Task<ActionResult> FullCreate([Bind(Include = "AssemblyID,Items,Structures,Processes,Properties,Variables")] AssemblyProfile assemblyProfile)
+        public ActionResult FullCreate([Bind(Include = "AssemblyID,Items,Structures,Processes,Properties,Variables")] AssemblyProfile assemblyProfile)
         {
             string partId = Session["PartID"].ToString();
             assemblyProfile.Structures = db.PartStructures.Where(p => p.PartID == partId).FirstOrDefault();
@@ -100,7 +100,7 @@ namespace CERPA.Controllers
             {
                 AutoCreate(partId);
                 db.AssemblyProfiles.Add(assemblyProfile);
-                await db.SaveChangesAsync();
+                db.SaveChangesAsync();
                 return RedirectToAction("Index","Home");
             }
 

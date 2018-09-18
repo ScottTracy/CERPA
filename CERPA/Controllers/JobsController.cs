@@ -47,6 +47,7 @@ namespace CERPA.Controllers
             var jobsByUser =await db.Jobs.Where(j=>j.UserID==UserId&& j.IsConfirmed== false).Select(j=>j).ToListAsync();
             return View(jobsByUser);
         }
+       
         public ActionResult GetJobsByWorkstation(string workstation)
         {
             

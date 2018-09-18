@@ -25,6 +25,9 @@
         <td>
             @Html.DisplayFor(modelItem => item.PartQuantity)
         </td>
+        <td>
+            @Html.ActionLink("EmailInventory", "EmailInventory", new { id = item.PartId }) |
+        </td>
     </tr>
 }
 

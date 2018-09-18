@@ -29,6 +29,12 @@ namespace CERPA.Controllers
             
             return PartialView(pickOrders.AsEnumerable());
         }
+        public ActionResult EmailInventory(string id)
+        {
+            InventoryEmail mail = new InventoryEmail();
+            mail.CreateInventoryEmail(id);
+            return RedirectToAction("Index", "Home");
+        }
         // GET: PickOrders
         public async Task<ActionResult> _Operations()
         {

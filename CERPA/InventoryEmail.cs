@@ -11,11 +11,11 @@ namespace CERPA
         private string emailToAddress = "Scotttesttracy+1@gmail.com";
         
 
-        public void CreateInventoryEmail(Job job,string item, string quantity )
+        public void CreateInventoryEmail(string item )
         {
-            string subject = (job.ID).ToString();
-           
-            string body ="Incorrect Part Quanity."+item +": "+ quantity;
+            string subject = item;
+
+            string body = "Incorrect Part Quanity." + item;
             SendEmail(emailToAddress, subject, body);
             
         }

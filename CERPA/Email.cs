@@ -32,11 +32,11 @@ namespace CERPA
         }
         public static void SendEmail( string emailToAddress, string subject, string body)
         {
-            string password = GetPassword();
+            string password = "Thedaddy1!";
             string emailFromAddress = GetMailAddress();
             using (MailMessage mail = new MailMessage())
             {
-                mail.From = new MailAddress(emailFromAddress);
+                mail.From = new MailAddress("scotttesttracy@gmail.com");
                 mail.To.Add(emailToAddress);
                 mail.Subject = subject;
                 mail.Body = body;
@@ -44,6 +44,7 @@ namespace CERPA
                 //mail.Attachments.Add(new Attachment("D:\\TestFile.txt"));//--Uncomment this to send any attachment  
                 using (SmtpClient smtp = new SmtpClient(smtpAddress, portNumber))
                 {
+                    
                     smtp.Credentials = new NetworkCredential(emailFromAddress, password);
                     smtp.EnableSsl = enableSSL;
                     smtp.Send(mail);
