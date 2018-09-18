@@ -53,7 +53,7 @@ namespace CERPA.Controllers
             IEnumerable<string> workstations= db.Jobs.Select(j => j.Workstation).Distinct().ToList();
             ViewBag.Workstations = new SelectList(workstations);
            
-            return View("JobsByWorkstation",db.Jobs.Where(j => j.Workstation == workstation).Select(c => c).ToList());
+            return View("JobsByWorkstation",db.Jobs.Where(j => j.Workstation == workstation&& j.IsConfirmed==false).Select(c => c).ToList());
         }
         public ActionResult JobsByWorkstation(List<Job> jobs)
         {
@@ -122,15 +122,33 @@ namespace CERPA.Controllers
             {
                 return HttpNotFound();
             }
+             
+            job.UserID = User.Identity.GetUserId();
             job.Start = DateTime.Now;
             Session["JobId"] = job.ID;
             db.Entry(job).State = EntityState.Modified;
             await db.SaveChangesAsync();
             return View(job);
         }
+        
+        public async Task<ActionResult> Confirm()
+        {
+            var jobId = (int)Session["JobId"];
+            Job job = db.Jobs.Where(j => j.ID == jobId).Select(j => j).First();
+            job.ConfirmedOn = DateTime.Now;
+            job.IsConfirmed = true;
+            if (ModelState.IsValid)
+            {
+                db.Entry(job).State = EntityState.Modified;
+                await db.SaveChangesAsync();
+                return RedirectToAction("Index","Home");
+            }
+            return View(job);
+        }
+
         //public async Task ReportInventory()
-            // GET: Jobs/Details/5
-            public async Task<ActionResult> Details(int? id)
+        // GET: Jobs/Details/5
+        public async Task<ActionResult> Details(int? id)
         {
             if (id == null)
             {

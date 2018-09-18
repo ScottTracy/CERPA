@@ -8,7 +8,7 @@ namespace CERPA
 {
     public class InventoryEmail:Email
     {
-        private string emailToAddress = "Scotttesttracy@gmail.com";
+        private string emailToAddress = "Scotttesttracy+1@gmail.com";
         
 
         public void CreateInventoryEmail(Job job,string item, string quantity )

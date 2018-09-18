@@ -35,8 +35,9 @@
         </dd>
     </dl>
 </div>
+@{Html.RenderAction("_jobInventory", "PickOrders");}
 <p>
     @Html.ActionLink("Start", "Start", new { id = Model.ID }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
-<partial name="_jobInventory" />
+

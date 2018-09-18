@@ -9,6 +9,7 @@ using System.Web;
 using System.Web.Mvc;
 using CERPA.Models;
 using System.Collections;
+using System.Web.UI;
 
 namespace CERPA.Controllers
 {
@@ -21,11 +22,12 @@ namespace CERPA.Controllers
         {
             return View(await db.PickOrders.ToListAsync());
         }
-        public async Task<ActionResult> _jobInventory()
+        public ActionResult _jobInventory()
         {
-            var JobId = (int)ViewData["JobId"];
-            var pickOrders= await db.PickOrders.Where(o => o.Id == JobId).Select(o => 0).ToListAsync();
-            return View(pickOrders);
+            var JobId = (int)Session["JobId"];
+            List<PickOrder> pickOrders= db.PickOrders.Where(o => o.Id == JobId).Select(c => c).ToList();
+            
+            return PartialView(pickOrders.AsEnumerable());
         }
         // GET: PickOrders
         public async Task<ActionResult> _Operations()
@@ -136,6 +138,21 @@ namespace CERPA.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+        protected void btnOpenPopupWindow_Click(object sender, EventArgs e)
+        {
+            int intId = 100;
+
+            string strPopup = "<script language='javascript' ID='script1'>"
+
+            // Passing intId to popup window.
+            + "window.open('popup.aspx?data=" + HttpUtility.UrlEncode(intId.ToString())
+
+            + "','new window', 'top=90, left=200, width=300, height=100, dependant=no, location=0, alwaysRaised=no, menubar=no, resizeable=no, scrollbars=n, toolbar=no, status=no, center=yes')"
+
+            + "</script>";
+
+            System.Web.UI.ScriptManager.RegisterStartupScript((Page)System.Web.HttpContext.Current.Handler, typeof(Page), "Script1", strPopup, false);
         }
     }
 }
