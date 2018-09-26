@@ -77,6 +77,10 @@ namespace CERPA.Controllers
             var jobs = await db.Jobs.ToListAsync();
             foreach(var job in jobs)
             {
+                if (job.OrderID > 1000)
+                {
+                    await DeleteConfirmed(job.ID);
+                }
                 if (job.UserID != null)
                 {
                     job.UserID = GetUsername(job.UserID);
@@ -309,9 +313,9 @@ namespace CERPA.Controllers
             }
             base.Dispose(disposing);
         }
-        public Job AssignJob(Order order)
+        public async Task<Job> AssignJob(Order order)
         {
-            var workstation = GetWorkstation(order.PartID);
+            var workstation =await GetWorkstation(order.PartID);
 
             Job job = new Job
             {
@@ -322,9 +326,9 @@ namespace CERPA.Controllers
             };
             return job;
         }
-        public string GetWorkstation(string PartId)
+        public async Task<string> GetWorkstation(string PartId)
         {
-            return db.PartProcesses.Where(p => p.PartID == PartId).Select(c => c.WorkstationID).First();
+            return await db.PartProcesses.Where(p => p.PartID == PartId).Select(c => c.WorkstationID).FirstAsync();
         }
         public async Task CreateJob(Job job)
         {
@@ -334,23 +338,23 @@ namespace CERPA.Controllers
                 await db.SaveChangesAsync();
             }
         }
-        public List<PartStructure> GetPartStructures(string PartId)
+        public async Task<List<PartStructure>> GetPartStructures(string PartId)
         {
-            return db.PartStructures.Where(p => p.PartID == PartId).Select(s => s).ToList();
+            return await db.PartStructures.Where(p => p.PartID == PartId).Select(s => s).ToListAsync();
         }
-        public List<PartProperty> GetPartProperties(string PartId)
+        public async Task<List<PartProperty>> GetPartProperties(string PartId)
         {
-            return db.PartProperties.Where(p => p.PartID == PartId).Select(c => c).ToList();
+            return await db.PartProperties.Where(p => p.PartID == PartId).Select(c => c).ToListAsync();
         }
-        public VariableExpression GetVariableExpression(int PropertyId)
+        public async Task<VariableExpression> GetVariableExpression(int PropertyId)
         {
-            return db.VariableExpressions.Where(e => e.VariableId == PropertyId).Select(v => v).First();
+            return await db.VariableExpressions.Where(e => e.VariableId == PropertyId).Select(v => v).FirstAsync();
         }
         public double SolveVariableExpression(VariableExpression variableExpression, VariableValue variableValue)
         {
             return variableValue.Value / variableExpression.Devisor + variableExpression.Constant;
         }
-        public PropertyValue AssignPropertyValue(PartProperty property)
+        public async Task<PropertyValue> AssignPropertyValue(PartProperty property)
         {
             var order = (Order)Session["Order"];
             var variables = (List<ConfigurableAssemblyVariable>)Session["Variables"];
@@ -364,14 +368,14 @@ namespace CERPA.Controllers
                 value.OrderId = order.Id;
                 return value;
             }
-            var expression = GetVariableExpression(property.ID);
+            var expression = await GetVariableExpression(property.ID);
             var variableValue = variableValues.Where(v => v.ConfigurableAssemblyVariableId == expression.VariableId).Select(c => c).First();
             value.ExpressionResult = (SolveVariableExpression(expression, variableValue)).ToString();
             value.PropertyId = property.ID;
             value.OrderId = order.Id;
             return value;
         }
-        public async void CreatePropertyValue(PropertyValue propertyValue)
+        public async Task CreatePropertyValue(PropertyValue propertyValue)
         {
             if (ModelState.IsValid)
             {
@@ -388,15 +392,15 @@ namespace CERPA.Controllers
             }
         }
 
-        public ChildQuantityExpression GetQuantityExpression(string partId)
+        public async Task<ChildQuantityExpression> GetQuantityExpression(string partId)
         {
-            return db.ChildQuantityExpressions.Where(c => c.ChildID == partId).Select(e => e).First();
+            return await db.ChildQuantityExpressions.Where(c => c.ChildID == partId).Select(e => e).FirstAsync();
         }
         public double SolveQuantityExpression(VariableValue variableValue, ChildQuantityExpression expression)
         {
             return variableValue.Value / expression.Devisor + expression.Constant;
         }
-        public QuantityExpressionValue GetQuantity(PartStructure partStructure, Order order)
+        public async Task<QuantityExpressionValue> GetQuantity(PartStructure partStructure, Order order)
         {
             QuantityExpressionValue value = new QuantityExpressionValue();
             if (partStructure.ISChildQuantityConfigurable == false)
@@ -406,16 +410,16 @@ namespace CERPA.Controllers
                 value.OrderId = order.Id;
                 return value;
             }
-            var expression = GetQuantityExpression(partStructure.ChildID);
-            var variableValue = db.VariableValues.Where(v => v.Id == expression.VariableId).Select(v => v).First();
+            var expression = await GetQuantityExpression(partStructure.ChildID);
+            var variableValue = await db.VariableValues.Where(v => v.Id == expression.VariableId).Select(v => v).FirstAsync();
             value.ChildQuantityExpressionId = expression.Id;
             value.ChildQuantityValue = Convert.ToInt32(SolveQuantityExpression(variableValue, expression));
             value.OrderId = order.Id;
             return value;
         }
-        public Job AssignJob(PartStructure partStructure, Order order)
+        public async Task<Job> AssignJob(PartStructure partStructure, Order order)
         {
-            var workstation = GetWorkstation(partStructure.ChildID);
+            var workstation =await GetWorkstation(partStructure.ChildID);
             Job job = new Job
             {
                 OrderID = order.Id,
@@ -425,21 +429,21 @@ namespace CERPA.Controllers
             };
             return job;
         }
-        public PickOrder AssignPickOrder(Job job, string partId, int partQuantity)
+        public async Task<PickOrder> AssignPickOrder(Job job, string partId, int partQuantity)
         {
             PickOrder pickOrder = new PickOrder
             {
                 OrderId = job.OrderID,
                 PartId = partId,
                 IsConfirmed = false,
-                Location = db.Inventory.Where(i => i.PartID == partId && i.Location != job.Workstation).Select(p => p.Location).First(),
+                Location =await db.Inventory.Where(i => i.PartID == partId && i.Location != job.Workstation).Select(p => p.Location).FirstAsync(),
                 Destination = job.Workstation,
                 PartQuantity = partQuantity,
                 JobId = job.ID
             };
             return pickOrder;
         }
-        public async void CreatePickOrder(PickOrder pickOrder)
+        public async Task CreatePickOrder(PickOrder pickOrder)
         {
             if (ModelState.IsValid)
             {
@@ -449,15 +453,15 @@ namespace CERPA.Controllers
         }
         public async Task StartJobAssignments(Order order)
         {
-            var job = AssignJob(order);
+            var job = await AssignJob(order);
             await CreateJob(job);
-            var partStructures = GetPartStructures(job.PartID);
+            var partStructures =await GetPartStructures(job.PartID);
             foreach (var partStructure in partStructures)
             {
-                var partquantity = GetQuantity(partStructure, order);
+                var partquantity = await GetQuantity(partStructure, order);
                 await CreateQuantityValue(partquantity);
-                var pickOrder = AssignPickOrder(job, partStructure.ChildID, partquantity.ChildQuantityValue);
-                CreatePickOrder(pickOrder);
+                var pickOrder =await AssignPickOrder(job, partStructure.ChildID, partquantity.ChildQuantityValue);
+                await CreatePickOrder(pickOrder);
                 await AssignChildJobs(partStructure, order, partquantity.ChildQuantityValue);
             }
         }
@@ -465,27 +469,29 @@ namespace CERPA.Controllers
         {
             for (var i = 0; i < quantity; i++)
             {
-                var childStructures = GetPartStructures(partStructure.ChildID);
+                var childStructures = await GetPartStructures(partStructure.ChildID);
                 if (childStructures != null && childStructures.Count != 0)
                 {
 
 
-                    var job = AssignJob(partStructure, order);
+                    var job = await AssignJob(partStructure, order);
                     await CreateJob(job);
-                    var properties = GetPartProperties(partStructure.PartID);
+                    var properties = await GetPartProperties(partStructure.PartID);
                     foreach (var property in properties)
                     {
-                        CreatePropertyValue(AssignPropertyValue(property));
+                        await CreatePropertyValue(await AssignPropertyValue(property));
                     }
-                    foreach (var childstructure in childStructures)
+                    foreach (var childStructure in childStructures)
                     {
-                        var partquantity = GetQuantity(partStructure, order);
+                        var partquantity = await GetQuantity(childStructure, order);
                         await CreateQuantityValue(partquantity);
-                        var pickOrder = AssignPickOrder(job, partStructure.ChildID, partquantity.ChildQuantityValue);
-                        CreatePickOrder(pickOrder);
-                        await AssignChildJobs(partStructure, order, partquantity.ChildQuantityValue);
+                        var pickOrder =await AssignPickOrder(job, childStructure.ChildID, partquantity.ChildQuantityValue);
+                        await CreatePickOrder(pickOrder);
+                        await AssignChildJobs(childStructure, order, partquantity.ChildQuantityValue);
                     }
+                    Session["order"] = order;
                 }
+                //RedirectToAction("Operations");
             }
 
         }

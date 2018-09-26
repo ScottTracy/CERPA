@@ -86,21 +86,21 @@ namespace CERPA.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
 
-        public ActionResult FullCreate([Bind(Include = "AssemblyID,Items,Structures,Processes,Properties,Variables")] AssemblyProfile assemblyProfile)
+        public async Task<ActionResult> FullCreate([Bind(Include = "AssemblyID,Items,Structures,Processes,Properties,Variables")] AssemblyProfile assemblyProfile)
         {
             string partId = Session["PartID"].ToString();
-            assemblyProfile.Structures = db.PartStructures.Where(p => p.PartID == partId).FirstOrDefault();
-            assemblyProfile.Processes = db.PartProcesses.Where(p => p.PartID == partId).FirstOrDefault();
-            assemblyProfile.Properties = db.PartProperties.Where(p => p.PartID == partId).ToList();
-            assemblyProfile.Items = db.Inventory.Where(p => p.PartID == partId).FirstOrDefault();
-            assemblyProfile.Variables = db.ConfigurableAssemblyVariables.Where(v => v.PartID == partId).ToList();
+            assemblyProfile.Structures = await db.PartStructures.Where(p => p.PartID == partId).FirstOrDefaultAsync();
+            assemblyProfile.Processes = await db.PartProcesses.Where(p => p.PartID == partId).FirstOrDefaultAsync();
+            assemblyProfile.Properties = await db.PartProperties.Where(p => p.PartID == partId).ToListAsync();
+            assemblyProfile.Items = await db.Inventory.Where(p => p.PartID == partId).FirstOrDefaultAsync();
+            assemblyProfile.Variables = await db.ConfigurableAssemblyVariables.Where(v => v.PartID == partId).ToListAsync();
             
             
             if (ModelState.IsValid)
             {
                 AutoCreate(partId);
                 db.AssemblyProfiles.Add(assemblyProfile);
-                db.SaveChangesAsync();
+                await db.SaveChangesAsync();
                 return RedirectToAction("Index","Home");
             }
 

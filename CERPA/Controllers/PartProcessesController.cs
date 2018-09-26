@@ -47,14 +47,14 @@ namespace CERPA.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "PartID,WorkstationID,ProcessTime,UserID")] PartProcess partProcess)
+        public async Task<ActionResult> Create([Bind(Include = "PartID,WorkstationID,ProcessTime,UserID")] PartProcess partProcess)
         {
             var PartId = Session["PartId"].ToString();
             partProcess.PartID = PartId;
             if (ModelState.IsValid)
             {
                 db.PartProcesses.Add(partProcess);
-                db.SaveChangesAsync();
+                await db.SaveChangesAsync();
                 return RedirectToAction("FullCreate","AssemblyProfiles");
             }
 

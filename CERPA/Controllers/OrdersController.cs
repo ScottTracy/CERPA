@@ -67,7 +67,7 @@ namespace CERPA.Controllers
                     Session["Variables"] = variables;
                     return RedirectToAction("Create","VariableValues");
                 }
-                return RedirectToAction("ActiveJobs", "OperationsViewModels");
+                return RedirectToAction("Operations", "Jobs");
             }
 
             return View(order);

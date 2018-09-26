@@ -1,0 +1,41 @@
+﻿@model IEnumerable<CERPA.Models.UserJobsViewmodel>
+
+<br /><br />
+@using (Html.BeginForm("EmployeeSearch", "UserJobs", FormMethod.Get))
+{
+    @Html.TextBox("searchTerm")<input type="submit" value="Search" />
+}
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>User Name</th>
+            <th>Job Id</th>
+            <th>Routed time</th>
+            <th>Total time</th>
+            <th>Percentage</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Count()==0)
+        {
+            <tr>
+                <td colspan="3"  style="color:red">
+                    Your search did not return any results.
+                </td>
+            </tr>
+        }
+        else
+        {
+            foreach (var item in Model)
+            {
+            <tr>
+                <td>@item.User.UserName</td>
+                <td>@item.Job.ID</td>
+                <td>@Html.Action("GetRoutedTime", new{ Job = item.Job})</td>
+                <td>@Html.Action("GetTime", new{ Job = item.Job})</td>
+                <td>@Html.Action("GetPercentage", new{ Job = item.Job})</td>
+            </tr>
+            }
+        }
+    </tbody>
+</table>

@@ -75,3 +75,4 @@ D:\projects\CERPA\CERPA\obj\Debug\CERPA.Migrations.AddedjobreferencetoPickorders
 D:\projects\CERPA\CERPA\obj\Debug\CERPA.Migrations.changejobIdinPickordertostring.resources
 D:\projects\CERPA\CERPA\obj\Debug\CERPA.Migrations.changejobIdinPickorderbacktoint.resources
 D:\projects\CERPA\CERPA\obj\Debug\CERPA.Migrations.fixthings.resources
+D:\projects\CERPA\CERPA\obj\Debug\CERPA.Migrations.Viewmodel.resources
