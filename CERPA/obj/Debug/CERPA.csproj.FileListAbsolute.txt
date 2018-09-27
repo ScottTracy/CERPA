@@ -76,3 +76,4 @@ D:\projects\CERPA\CERPA\obj\Debug\CERPA.Migrations.changejobIdinPickordertostrin
 D:\projects\CERPA\CERPA\obj\Debug\CERPA.Migrations.changejobIdinPickorderbacktoint.resources
 D:\projects\CERPA\CERPA\obj\Debug\CERPA.Migrations.fixthings.resources
 D:\projects\CERPA\CERPA\obj\Debug\CERPA.Migrations.Viewmodel.resources
+D:\projects\CERPA\CERPA\obj\Debug\CERPA.Migrations.InventoryTransactions.resources

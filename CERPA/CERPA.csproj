@@ -417,6 +417,10 @@
     <Compile Include="Migrations\201809261604507_Viewmodel.Designer.cs">
       <DependentUpon>201809261604507_Viewmodel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201809271435291_Inventory Transactions.cs" />
+    <Compile Include="Migrations\201809271435291_Inventory Transactions.Designer.cs">
+      <DependentUpon>201809271435291_Inventory Transactions.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AdminViewModel.cs" />
@@ -429,6 +433,7 @@
     <Compile Include="Models\GroupViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\InventoryItem.cs" />
+    <Compile Include="Models\InventoryTansaction.cs" />
     <Compile Include="Models\Job.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Order.cs" />
@@ -506,6 +511,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201809261604507_Viewmodel.resx">
       <DependentUpon>201809261604507_Viewmodel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809271435291_Inventory Transactions.resx">
+      <DependentUpon>201809271435291_Inventory Transactions.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

@@ -93,6 +93,7 @@ namespace CERPA.Models
         public virtual DbSet<PickOrder> PickOrders { get; set; }
         public virtual DbSet<ApplicationGroupRole> GroupRoles { get; set; }
         public virtual DbSet<ApplicationUserGroup> ApplicationUsers { get; set; }
+        public virtual DbSet<InventoryTansaction> InventoryTansactions { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             
