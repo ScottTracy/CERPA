@@ -239,6 +239,7 @@
     <Content Include="Views\Jobs\Start.cshtml" />
     <Content Include="Views\Shared\_jobInventory.cshtml" />
     <Content Include="Views\UserJobs\EmployeeSearch.cshtml" />
+    <Content Include="Views\InventoryControl\SearchTransactions.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
       <SubType>Designer</SubType>
@@ -319,6 +320,7 @@
     <Compile Include="Controllers\ConfigurableAssemblyVariablesController.cs" />
     <Compile Include="Controllers\GroupsAdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InventoryControlController.cs" />
     <Compile Include="Controllers\InventoryItemsController.cs" />
     <Compile Include="Controllers\JobsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -421,6 +423,10 @@
     <Compile Include="Migrations\201809271435291_Inventory Transactions.Designer.cs">
       <DependentUpon>201809271435291_Inventory Transactions.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201809271701514_fixed transaction spelling.cs" />
+    <Compile Include="Migrations\201809271701514_fixed transaction spelling.Designer.cs">
+      <DependentUpon>201809271701514_fixed transaction spelling.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AdminViewModel.cs" />
@@ -432,8 +438,9 @@
     <Compile Include="Models\GroupStoreBase.cs" />
     <Compile Include="Models\GroupViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\InventoryControlViewModel.cs" />
     <Compile Include="Models\InventoryItem.cs" />
-    <Compile Include="Models\InventoryTansaction.cs" />
+    <Compile Include="Models\InventoryTransaction.cs" />
     <Compile Include="Models\Job.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Order.cs" />
@@ -514,6 +521,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201809271435291_Inventory Transactions.resx">
       <DependentUpon>201809271435291_Inventory Transactions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809271701514_fixed transaction spelling.resx">
+      <DependentUpon>201809271701514_fixed transaction spelling.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

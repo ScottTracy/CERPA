@@ -1,0 +1,47 @@
+﻿@model IEnumerable<CERPA.Models.InventoryControlViewModel>
+<br /><br />
+@using (Html.BeginForm("SearchTransactions", "InventoryControl", FormMethod.Get))
+{
+    @Html.TextBox("searchTerm")<input type="submit" value="Search" />
+}
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>User Name</th>
+            <th>Inventory Item</th>
+            <th>Job Id</th>
+            <th>TimeStamp</th>
+            <th>Transaction Type</th>
+            <th>Change Amount</th>
+            <th>Current level</th>
+            <th>Comment</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Count() == 0)
+        {
+            <tr>
+                <td colspan="3" style="color:red">
+                    Your search did not return any results.
+                </td>
+            </tr>
+        }
+        else
+        {
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.Action("GetUserName", new { InventoryTransaction = item.InventoryTransaction })
+                    <td />
+                    <td>@item.InventoryItem.PartID</td>
+                    <td>@item.InventoryTransaction.JobId</td>
+                    <td>@item.InventoryTransaction.TimeStamp</td>
+                    <td>@item.InventoryTransaction.TransactionType</td>
+                    <td>@item.InventoryTransaction.Quantity</td>
+                    <td>@item.InventoryItem.Quantity</td>
+                    <td>@item.InventoryTransaction.Comment</td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
