@@ -144,12 +144,14 @@ namespace CERPA.Controllers
             job.IsConfirmed = true;
             if (ModelState.IsValid)
             {
+                InventoryControlController.ReduceInventory(job);
                 db.Entry(job).State = EntityState.Modified;
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index","Home");
             }
             return View(job);
         }
+
 
         //public async Task ReportInventory()
         // GET: Jobs/Details/5
