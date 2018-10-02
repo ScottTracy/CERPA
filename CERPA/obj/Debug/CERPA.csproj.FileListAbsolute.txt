@@ -77,3 +77,4 @@ D:\projects\CERPA\CERPA\obj\Debug\CERPA.csproj.CoreCompileInputs.cache
 D:\projects\CERPA\CERPA\obj\Debug\CERPA.csproj.CopyComplete
 D:\projects\CERPA\CERPA\obj\Debug\CERPA.dll
 D:\projects\CERPA\CERPA\obj\Debug\CERPA.pdb
+D:\projects\CERPA\CERPA\obj\Debug\CERPA.csprojAssemblyReference.cache

@@ -53,13 +53,13 @@ namespace CERPA.Controllers
         public async Task ReduceInventory(Job job)
         {
             await AddPart(job);
-            var jobInventory = GetJobInventory(job);
+            var jobInventory = await GetJobInventoryAsync(job);
             foreach (var item in jobInventory)
             {
                 item.Key.Quantity = item.Key.Quantity - item.Value;
                 db.Entry(item.Key).State = EntityState.Modified;
                 CheckInventoryLevel(item.Key);
-                RecordTransaction(item.Key, job, item.Value,("auto on job confirmation"),"");
+                await RecordTransaction(item.Key, job, item.Value,("auto on job confirmation"),"");
                 await db.SaveChangesAsync();
             }
 
@@ -71,13 +71,13 @@ namespace CERPA.Controllers
             part.Quantity++;
             db.Entry(part).State = EntityState.Modified;
             await db.SaveChangesAsync();
-            RecordTransaction(part, job, -1, ("auto on job confirmation"),"");
+            await RecordTransaction(part, job, -1, ("auto on job confirmation"),"");
 
         }
-        public Dictionary<InventoryItem,int> GetJobInventory(Job job)
+        public async Task<Dictionary<InventoryItem, int>> GetJobInventoryAsync(Job job)
         {
             Dictionary<InventoryItem, int> jobInventory = new Dictionary<InventoryItem, int>();
-            var items = db.PickOrders.Where(x => x.JobId == job.ID).Select(y => y).ToList();
+            var items =await db.PickOrders.Where(x => x.JobId == job.ID).Select(y => y).ToListAsync();
             foreach(var item in items)
             {
                 jobInventory.Add(db.Inventory.Where(z => z.PartID == item.PartId).Select(i => i).First(), item.PartQuantity);
@@ -85,9 +85,9 @@ namespace CERPA.Controllers
             }
             return jobInventory;
         }
-        public void RecordTransaction(InventoryItem item,Job job,int quantity, string type,string comment)
+        public async Task RecordTransaction(InventoryItem item,Job job,int quantity, string type,string comment)
         {
-            InventoryTransaction transaction = new InventoryTransaction
+            InventoryTransaction transaction = new InventoryTransaction()
             {
                 InventoryItem = item.PartID,
                 UserId = job.UserID,
@@ -97,6 +97,8 @@ namespace CERPA.Controllers
                 Quantity= quantity,
                 Comment=comment
             };
+            db.InventoryTansactions.Add(transaction);
+            await db.SaveChangesAsync();
         }
         public void CheckInventoryLevel(InventoryItem item)
         {
@@ -140,7 +142,7 @@ namespace CERPA.Controllers
 
             if (ModelState.IsValid)
             {
-                RecordTransaction(inventoryItem, null, (originalValues.Quantity - inventoryItem.Quantity), "Manual Change", "");
+                await RecordTransaction(inventoryItem, null, (originalValues.Quantity - inventoryItem.Quantity), "Manual Change", "");
                 db.Entry(inventoryItem).State = EntityState.Modified;
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
