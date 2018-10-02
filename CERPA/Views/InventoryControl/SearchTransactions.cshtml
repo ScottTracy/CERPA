@@ -31,8 +31,7 @@
             foreach (var item in Model)
             {
                 <tr>
-                    <td>@Html.Action("GetUserName", new { InventoryTransaction = item.InventoryTransaction })
-                    <td />
+                    <td>@Html.Action("GetUserName", new { id =item.InventoryTransaction.Id })</td>
                     <td>@item.InventoryItem.PartID</td>
                     <td>@item.InventoryTransaction.JobId</td>
                     <td>@item.InventoryTransaction.TimeStamp</td>
