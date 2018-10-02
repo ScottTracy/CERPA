@@ -16,6 +16,7 @@ namespace CERPA.Controllers
    
     public class JobsController : Controller
     {
+        InventoryControlController ic =new InventoryControlController();
         private ApplicationDbContext db = new ApplicationDbContext();
         // GET: Jobs
         public async Task<ActionResult> ActiveJobs()
@@ -144,7 +145,7 @@ namespace CERPA.Controllers
             job.IsConfirmed = true;
             if (ModelState.IsValid)
             {
-                InventoryControlController.ReduceInventory(job);
+                await ic.ReduceInventory(job);
                 db.Entry(job).State = EntityState.Modified;
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index","Home");

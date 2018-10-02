@@ -44,6 +44,17 @@
                         <li>@Html.ActionLink("Create Part Property", "Create", "PartProperties")</li>
                         <li>@Html.ActionLink("Create Order", "Create", "Orders")</li>
                     }
+                    @if (Request.IsAuthenticated && User.IsInRole("Manager"))
+                    {
+                        <li>@Html.ActionLink("Search Transactions", "SearchTransactions", "InventoryControl")</li>
+                        <li>@Html.ActionLink("Employee Performance", "EmployeeSearch", "UserJobs")</li>
+                    }
+                    @if (Request.IsAuthenticated && User.IsInRole("InventoryControl"))
+                    {
+                        <li>@Html.ActionLink("Search Transactions", "SearchTransactions", "InventoryControl")</li>
+                        <li>@Html.ActionLink("View Purchased Inventory", "ViewPurchasedInventory", "InventoryControl")</li>
+                    }
+
 
 
 
