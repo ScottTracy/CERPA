@@ -103,7 +103,7 @@ namespace CERPA.Controllers
             InventoryTransaction transaction = new InventoryTransaction()
             {
                 InventoryItem = item.PartID,
-                UserId = User.Identity.GetUserId(),
+                UserId = System.Web.HttpContext.Current.User.Identity.GetUserId(),
                 JobId =JobID,
                 TimeStamp=DateTime.Now,
                 TransactionType=type,
